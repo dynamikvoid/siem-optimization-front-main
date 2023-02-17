@@ -1,0 +1,62 @@
+.frame-child2,
+.frame-child3 {
+  position: absolute;
+  top: 19px;
+  left: 0;
+  background-color: #333;
+  width: 313px;
+  height: 288px;
+}
+.frame-child3 {
+  top: 42.43px;
+  left: 219px;
+  border-radius: 5px;
+  width: 60px;
+  height: 60px;
+  transform: rotate(-45deg);
+  transform-origin: 0 0;
+}
+.date-range,
+.logging-cost {
+  position: absolute;
+  line-height: 143%;
+}
+.date-range {
+  top: 85px;
+  left: 118px;
+  font-weight: 600;
+}
+.logging-cost {
+  top: 51px;
+  left: 27px;
+  font-size: 16px;
+  display: inline-block;
+  width: 259px;
+}
+.charts-on-this-dashboard-will {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.days9 {
+  font-family: "Open Sans";
+}
+.days-months-or-years {
+  margin: 0;
+}
+.charts-on-this-container {
+  position: absolute;
+  top: 123px;
+  left: 27px;
+  line-height: 143%;
+  color: #fff;
+  text-align: left;
+}
+.rectangle-root {
+  position: relative;
+  width: 100%;
+  height: 307px;
+  text-align: center;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.87);
+  font-family: "Open Sans";
+}

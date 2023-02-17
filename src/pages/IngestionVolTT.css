@@ -1,0 +1,62 @@
+.ingestion-vol-tt-child,
+.ingestion-vol-tt-item {
+  position: absolute;
+  top: 33px;
+  left: 0;
+  background-color: #333;
+  width: 313px;
+  height: 288px;
+}
+.ingestion-vol-tt-item {
+  top: 56.43px;
+  left: 219px;
+  border-radius: 5px;
+  width: 60px;
+  height: 60px;
+  transform: rotate(-45deg);
+  transform-origin: 0 0;
+}
+.date-range1,
+.logging-cost1 {
+  position: absolute;
+  line-height: 143%;
+}
+.date-range1 {
+  top: 99px;
+  left: 118px;
+  font-weight: 600;
+}
+.logging-cost1 {
+  top: 65px;
+  left: 27px;
+  font-size: 16px;
+  display: inline-block;
+  width: 259px;
+}
+.charts-on-this-dashboard-will1 {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.days10 {
+  font-family: "Open Sans";
+}
+.days-months-or-years1 {
+  margin: 0;
+}
+.charts-on-this-container1 {
+  position: absolute;
+  top: 137px;
+  left: 27px;
+  line-height: 143%;
+  color: #fff;
+  text-align: left;
+}
+.ingestion-vol-tt {
+  position: relative;
+  width: 100%;
+  height: 467px;
+  text-align: center;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.87);
+  font-family: "Open Sans";
+}

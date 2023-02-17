@@ -1,0 +1,78 @@
+.alert-sum-tt-child,
+.alert-sum-tt-item {
+  position: absolute;
+  top: 33px;
+  left: 0;
+  background-color: #333;
+  width: 313px;
+  height: 357px;
+}
+.alert-sum-tt-item {
+  top: 42.43px;
+  left: 115px;
+  border-radius: 5px;
+  width: 60px;
+  height: 60px;
+  transform: rotate(-45deg);
+  transform-origin: 0 0;
+}
+.advanced-multistage-attack,
+.siem-alert-rule {
+  position: absolute;
+  line-height: 143%;
+  color: rgba(255, 255, 255, 0.87);
+}
+.advanced-multistage-attack {
+  top: 94px;
+  left: 18px;
+  font-weight: 600;
+}
+.siem-alert-rule {
+  top: 65px;
+  left: 27px;
+  font-size: 16px;
+  display: inline-block;
+  text-align: center;
+  width: 259px;
+}
+.frequency {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.source2 {
+  margin: 0;
+}
+.frequency-fidelity-criticality-container,
+.k-001-high-container {
+  position: absolute;
+  top: 169px;
+  left: 27px;
+  line-height: 143%;
+  font-weight: 300;
+}
+.k-001-high-container {
+  left: 248px;
+  font-weight: 600;
+  text-align: right;
+}
+.annualized-recovery-value1 {
+  font-weight: 300;
+}
+.m53 {
+  font-weight: 600;
+}
+.annualized-recovery-value-container {
+  position: absolute;
+  top: 317px;
+  left: 27px;
+  line-height: 143%;
+}
+.alert-sum-tt {
+  position: relative;
+  width: 100%;
+  height: 467px;
+  text-align: left;
+  font-size: 15px;
+  color: #fff;
+  font-family: "Open Sans";
+}

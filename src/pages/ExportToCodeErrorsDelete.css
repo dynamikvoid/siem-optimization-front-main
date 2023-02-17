@@ -1,0 +1,31 @@
+.navbar-needs-to-use-autolayou {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 4px solid red;
+  box-sizing: border-box;
+  width: 1440px;
+  height: 100px;
+}
+.homefilled-needs-to-use-autol,
+.vector-needs-to-be-a-rasteriz {
+  position: absolute;
+  top: 33px;
+  left: 44px;
+  border: 4px solid red;
+  box-sizing: border-box;
+  width: 34px;
+  height: 34px;
+}
+.vector-needs-to-be-a-rasteriz {
+  top: 37.25px;
+  left: 46.83px;
+  width: 28.33px;
+  height: 24.08px;
+}
+.export-to-code-errors-delete {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+}

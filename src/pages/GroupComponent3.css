@@ -1,0 +1,12 @@
+.ellipse-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 75px;
+  height: 75px;
+}
+.ellipse-parent {
+  position: relative;
+  width: 100%;
+  height: 75px;
+}

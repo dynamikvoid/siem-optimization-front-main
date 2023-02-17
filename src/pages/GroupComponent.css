@@ -1,0 +1,188 @@
+.div1 {
+  position: absolute;
+  top: 70.92%;
+  left: 1.45%;
+  font-weight: 300;
+}
+.group-inner,
+.group-item,
+.rectangle-div {
+  position: absolute;
+  height: 76.1%;
+  width: 8.98%;
+  top: 0;
+  right: 91.02%;
+  bottom: 23.9%;
+  left: 0;
+  background-color: rgba(82, 0, 133, 0.69);
+}
+.group-inner,
+.rectangle-div {
+  height: 71.7%;
+  top: 4.4%;
+  right: 79.64%;
+  left: 11.38%;
+}
+.rectangle-div {
+  height: 65.41%;
+  top: 10.69%;
+  right: 68.26%;
+  left: 22.75%;
+}
+.group-child1,
+.group-child2 {
+  position: absolute;
+  height: 42.77%;
+  width: 8.98%;
+  top: 33.33%;
+  bottom: 23.9%;
+}
+.group-child1 {
+  right: 56.89%;
+  left: 34.13%;
+  background-color: rgba(82, 0, 133, 0.69);
+}
+.group-child2 {
+  right: 45.51%;
+  left: 45.51%;
+}
+.group-child2,
+.group-child3,
+.group-child4 {
+  background-color: rgba(82, 0, 133, 0.69);
+}
+.group-child3 {
+  position: absolute;
+  height: 37.11%;
+  width: 8.98%;
+  top: 38.99%;
+  right: 34.13%;
+  bottom: 23.9%;
+  left: 56.89%;
+}
+.group-child4 {
+  height: 33.65%;
+  top: 76.1%;
+  right: 22.75%;
+  bottom: -9.75%;
+  left: 68.26%;
+}
+.group-child4,
+.group-child5,
+.group-child6 {
+  position: absolute;
+  width: 8.98%;
+}
+.group-child5 {
+  height: 0.31%;
+  top: 75.79%;
+  right: 11.38%;
+  bottom: 23.9%;
+  left: 79.64%;
+  background-color: rgba(82, 0, 133, 0.69);
+}
+.group-child6 {
+  height: 23.9%;
+  top: 76.1%;
+  right: 0;
+  bottom: 0;
+  left: 91.02%;
+  background-color: #cdcdcd;
+}
+.m,
+.m1,
+.m2,
+.m3,
+.m4,
+.m5,
+.m6,
+.m7,
+.m8 {
+  position: absolute;
+  top: 35.53%;
+  left: 2.59%;
+  font-weight: 300;
+}
+.m1,
+.m2,
+.m3,
+.m4,
+.m5,
+.m6,
+.m7,
+.m8 {
+  top: 37.74%;
+  left: 14.07%;
+}
+.m2,
+.m3,
+.m4,
+.m5,
+.m6,
+.m7,
+.m8 {
+  top: 40.88%;
+  left: 25.35%;
+}
+.m3,
+.m4,
+.m5,
+.m6,
+.m7,
+.m8 {
+  top: 52.2%;
+  left: 36.93%;
+}
+.m4,
+.m5,
+.m6,
+.m7,
+.m8 {
+  left: 48.2%;
+}
+.m5,
+.m6,
+.m7,
+.m8 {
+  top: 55.03%;
+  left: 59.78%;
+}
+.m6,
+.m7,
+.m8 {
+  top: 54.72%;
+  left: 71.16%;
+}
+.m7,
+.m8 {
+  top: 70.44%;
+  left: 82.83%;
+  color: #000;
+}
+.m8 {
+  height: 4.4%;
+  width: 4.09%;
+  top: 85.85%;
+  left: 93.51%;
+  color: #333;
+  display: inline-block;
+}
+.rectangle-group {
+  position: absolute;
+  height: 63.35%;
+  width: 90.6%;
+  top: 24.3%;
+  right: 4.52%;
+  bottom: 12.35%;
+  left: 4.88%;
+  color: #fff;
+}
+.parent {
+  position: relative;
+  width: 100%;
+  height: 502px;
+  text-align: left;
+  font-size: 12px;
+  color: #828282;
+  font-family: Inter;
+}

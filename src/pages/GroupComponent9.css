@@ -1,0 +1,25 @@
+.div20,
+.div21,
+.div22 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 26px;
+  font-weight: 500;
+}
+.div21,
+.div22 {
+  left: 464px;
+}
+.div22 {
+  left: 949px;
+}
+.top {
+  position: relative;
+  width: 100%;
+  height: 26px;
+  text-align: left;
+  font-size: 16px;
+  color: #9f9f9f;
+  font-family: Inter;
+}
