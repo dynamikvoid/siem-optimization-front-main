@@ -12,29 +12,29 @@ import Paper from '@mui/material/Paper';
 /* 2/08/23 GetData API Call*/
 const GetAsData = () => {
 
-    const [asdata, setAsdata] = useState([])
+    const [Asdata, setAsdata] = useState([])
 
     // Fetch data --> 1.)
     useEffect(() => {
 
         // Fetch the Payroll Data related to the logged in User
-        fetch(`/api/asdata`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                Authorization: `Token ${localStorage.getItem('token')}`,
-            },
-        })
-        .then(res => res.json())
-        .then(data => {
-            setAsdata(data)
-            //console.log(data)
-          });
-    }, []);
-
+        const makeRequest = async () => {
+          try {
+            let response = await fetch('/api/asdata');
+            let json = await response.json();
+            setAsdata(json);
+          } catch (error) {
+            console.log(error);
+          }
+        }
+        makeRequest();
+        
+       },[]);
+        global.ruleName = Asdata.map(x => x.rulename);
+        global.annRecval = Asdata.map(y => y.annualizedrecoveryvalue);
+      
     // --> 2.)
-    const runItemsRulename = asdata.map((run) =>
+    /*const runItemsRulename = asdata.map((run) =>
         <div key={run.id} className="flex justify-between p-2 text-lg text-base">
             <div>
                 {run.rulename} 
@@ -46,11 +46,11 @@ const GetAsData = () => {
             $ {run.annualizedrecoveryvalue} 
         </div>
      </div>     
-    );
+    );*/
 
     return (
         <Paper sx={{ width: '100%', overflow: 'hidden', marginLeft: -5 }}>
-              <TableContainer component={Paper} style={{  minWidth: 1140, maxHeight: 300 }}>
+              <TableContainer component={Paper} style={{  minWidth: 1175, maxHeight: 300 }}>
                 <Table style={{ minWidth: 800, marginLeft: -10 }} stickyHeader aria-label="sticky table">
                   <TableHead>
                     <TableRow>
@@ -59,19 +59,16 @@ const GetAsData = () => {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    
-                      <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                  {Asdata.map(( listValue, index ) => {
+                    return (
+                      <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }} key={index}>
                         <TableCell component="th" scope="row">
-                          { runItemsRulename.map((item, index) =>{
-                            return <h6 key={index}>{item}</h6>
-                          }) }
+                          {listValue.rulename}
                         </TableCell>
-                        <TableCell align="right">{ runItemsAnnValue.map((item, index) =>{
-                            return <h6 key={index}>{item}</h6>
-                          }) }</TableCell>
+                        <TableCell align="right">$ {listValue.annualizedrecoveryvalue}</TableCell>
                         
                       </TableRow>
-                    
+                    );})}
                   </TableBody>
                 </Table>
               </TableContainer>

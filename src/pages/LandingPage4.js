@@ -1,10 +1,17 @@
 import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import "./LandingPage4.css";
 
 const LandingPage4 = () => {
+  const navigate = useNavigate();
+  
   const onLogoContainerClick = useCallback(() => {
     // Please sync "00 Landing Page" to the project
   }, []);
+
+  const onLogoContainer1Click = useCallback(() => {
+    navigate("/00-landing-page3");
+  }, [navigate]);
 
   return (
     <div className="landing-page4">
@@ -198,7 +205,7 @@ const LandingPage4 = () => {
         <b>Impact Cost Settings |</b>
         <span> Default Values</span>
       </div>
-      <div className="button44">
+      <div className="button44" onClick={onLogoContainer1Click}>
         <div className="container206">
           <img className="prefix-icon44" alt="" src="../prefix44.svg" />
           <div className="text182">Next</div>

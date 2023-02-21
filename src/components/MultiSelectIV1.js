@@ -7,7 +7,7 @@ const options = [
   { label: "Palo Alto", value: "Palo Alto" },
 ];
 
-const MultiSelectAS = () => {
+const MultiSelectIV1 = () => {
   const [selected, setSelected] = useState([]);
 
   return (
@@ -23,7 +23,7 @@ const MultiSelectAS = () => {
     </div>
   );
 };
-export default MultiSelectAS
+export default MultiSelectIV1
 
 /*const MultiSelecter = () => {
 

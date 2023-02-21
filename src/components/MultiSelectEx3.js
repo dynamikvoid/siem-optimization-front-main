@@ -3,27 +3,27 @@ import { MultiSelect } from "react-multi-select-component";
 
 const options = [
   { label: "Azure", value: "Azure" },
-  { label: "Sentinel One", value: "Sentinel One" },
-  { label: "Palo Alto", value: "Palo Alto" },
-];
+  { label: "Ops Manager", value: "opsmanager" },
+  { label: "Linux", value: "linux" }
+  ];
 
-const MultiSelectAS = () => {
+const MultiSelectEx3 = () => {
   const [selected, setSelected] = useState([]);
 
   return (
-    <div>
+    
       
       
       <MultiSelect
         options={options}
         value={selected}
         onChange={setSelected}
-        labelledBy="Select"
+        labelledBy="Node1"
       />
-    </div>
+    
   );
 };
-export default MultiSelectAS
+export default MultiSelectEx3
 
 /*const MultiSelecter = () => {
 

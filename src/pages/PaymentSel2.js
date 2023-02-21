@@ -14,20 +14,20 @@ const PaymentSel2 = () => {
   }, [navigate]);
 
   const onButtonContainer2Click = useCallback(() => {
-    // Please sync "02 - Logging Cost" to the project
-  }, []);
+    navigate("/02-logging-cost");
+  }, [navigate]);
 
   const onButtonContainer3Click = useCallback(() => {
-    // Please sync "01 - Alert Summary" to the project
-  }, []);
+    navigate("/01-alert-summary");
+  }, [navigate]);
 
   const onButtonContainer4Click = useCallback(() => {
     navigate("/03-cost-analysis");
   }, [navigate]);
 
   const onGroupContainerClick = useCallback(() => {
-    // Please sync "00 Landing Page" to the project
-  }, []);
+    navigate("/");
+  }, [navigate]);
 
   return (
     <div className="payment-sel2">
@@ -48,7 +48,7 @@ const PaymentSel2 = () => {
           </div>
         </div>
         <div className="button27" onClick={onButtonContainer2Click}>
-          <div className="container114">
+          <div className="container40">
             <img className="prefix-icon25" alt="" src="../prefix27.svg" />
             <div className="text98">Ingestion Volume</div>
             <img className="prefix-icon25" alt="" src="../suffix10.svg" />

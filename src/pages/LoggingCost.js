@@ -1,6 +1,13 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LoggingCost.css";
+import MultiSelectIV1 from "../components/MultiSelectIV1";
+import MultiSelectIV2 from "../components/MultiSelectIV2";
+import MultiSelectIV3 from "../components/MultiSelectIV3";
+import RangeSlider from "../components/rangeSlider";
+import StackedAreaChart from "../components/StackedAreaChart";
+import ToggleSwitch from "../components/ToggleSwitch";
+
 
 const LoggingCost = () => {
   const navigate = useNavigate();
@@ -33,288 +40,14 @@ const LoggingCost = () => {
     <div className="logging-cost4">
       <div className="siem-ingestion-volume-by-parent">
         <div className="siem-ingestion-volume2">{`SIEM Ingestion Volume by `}</div>
-        <div className="autocomplete8">
-          <div className="wrapper20">
-            <div className="field69">
-              <div className="prefix69">
-                <div className="icon189">
-                  <img
-                    className="starfilled-icon178"
-                    alt=""
-                    src="../starfilled118.svg"
-                  />
-                </div>
-              </div>
-              <div className="text-wrapper69">
-                <div className="values20">
-                  <div className="chip80">
-                    <div className="container208">
-                      <div className="avatar80">
-                        <div className="avatar81">
-                          <div className="op40">OP</div>
-                        </div>
-                      </div>
-                      <div className="typography166">
-                        <div className="chip81">Chip</div>
-                      </div>
-                      <img
-                        className="cancelfilled-icon40"
-                        alt=""
-                        src="../cancelfilled40.svg"
-                      />
-                    </div>
-                  </div>
-                  <div className="chip80">
-                    <div className="container208">
-                      <div className="avatar80">
-                        <div className="avatar81">
-                          <div className="op40">OP</div>
-                        </div>
-                      </div>
-                      <div className="typography166">
-                        <div className="chip81">Chip</div>
-                      </div>
-                      <img
-                        className="cancelfilled-icon40"
-                        alt=""
-                        src="../cancelfilled41.svg"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="value139">All</div>
-              </div>
-              <div className="clear20">
-                <div className="iconbutton94">
-                  <img className="starfilled-icon178" alt="" />
-                </div>
-              </div>
-              <div className="suffix69">
-                <div className="iconbutton95">
-                  <img
-                    className="starfilled-icon178"
-                    alt=""
-                    src="../arrowdropdownfilled22.svg"
-                  />
-                </div>
-              </div>
+        <div className="value22" style={{width:150, marginLeft:750, marginTop: -6}}> Source System
+          <MultiSelectIV1/>
+          
             </div>
-            <div className="alignment20">
-              <div className="basicmenu20">
-                <div className="menuitem60">
-                  <div className="container210">
-                    <div className="menuitembasicslot60">
-                      <div className="icon190">
-                        <div className="icon191">
-                          <img className="starfilled-icon178" alt="" />
-                        </div>
-                      </div>
-                      <div className="container211">
-                        <div className="value140">Azure</div>
-                        <div className="right-content60">
-                          <div className="typography168">⌘X</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="divider78">
-                    <div className="rectangle78" />
-                  </div>
-                </div>
-                <div className="menuitem60">
-                  <div className="container210">
-                    <div className="menuitembasicslot60">
-                      <div className="icon190">
-                        <div className="icon191">
-                          <img className="starfilled-icon178" alt="" />
-                        </div>
-                      </div>
-                      <div className="container211">
-                        <div className="value140">OpsManager</div>
-                        <div className="right-content60">
-                          <div className="typography168">⌘X</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="divider78">
-                    <div className="rectangle78" />
-                  </div>
-                </div>
-                <div className="menuitem60">
-                  <div className="container214">
-                    <div className="menuitembasicslot60">
-                      <div className="icon190">
-                        <div className="icon191">
-                          <img className="starfilled-icon178" alt="" />
-                        </div>
-                      </div>
-                      <div className="container211">
-                        <div className="value140">Linux</div>
-                        <div className="right-content60">
-                          <div className="typography168">⌘X</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="divider78">
-                    <div className="rectangle78" />
-                  </div>
-                </div>
-              </div>
+          <div className="value22" style={{width:150, marginLeft:550, marginTop: -63}}> Table
+          <MultiSelectIV2/>
+          
             </div>
-          </div>
-          <div className="helper69">
-            <div className="text184">Descriptive text</div>
-          </div>
-          <div className="label70">
-            <div className="label-background69">
-              <div className="cutborder69" />
-              <div className="text185">Source System</div>
-            </div>
-          </div>
-        </div>
-        <div className="autocomplete9">
-          <div className="wrapper20">
-            <div className="field69">
-              <div className="prefix69">
-                <div className="icon189">
-                  <img
-                    className="starfilled-icon178"
-                    alt=""
-                    src="../starfilled119.svg"
-                  />
-                </div>
-              </div>
-              <div className="text-wrapper69">
-                <div className="values20">
-                  <div className="chip80">
-                    <div className="container208">
-                      <div className="avatar80">
-                        <div className="avatar81">
-                          <div className="op40">OP</div>
-                        </div>
-                      </div>
-                      <div className="typography166">
-                        <div className="chip81">Chip</div>
-                      </div>
-                      <img
-                        className="cancelfilled-icon40"
-                        alt=""
-                        src="../cancelfilled42.svg"
-                      />
-                    </div>
-                  </div>
-                  <div className="chip80">
-                    <div className="container208">
-                      <div className="avatar80">
-                        <div className="avatar81">
-                          <div className="op40">OP</div>
-                        </div>
-                      </div>
-                      <div className="typography166">
-                        <div className="chip81">Chip</div>
-                      </div>
-                      <img
-                        className="cancelfilled-icon40"
-                        alt=""
-                        src="../cancelfilled43.svg"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="value139">All</div>
-              </div>
-              <div className="clear20">
-                <div className="iconbutton94">
-                  <img className="starfilled-icon178" alt="" />
-                </div>
-              </div>
-              <div className="suffix69">
-                <div className="iconbutton95">
-                  <img
-                    className="starfilled-icon178"
-                    alt=""
-                    src="../arrowdropdownfilled23.svg"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="alignment20">
-              <div className="basicmenu20">
-                <div className="menuitem60">
-                  <div className="container210">
-                    <div className="menuitembasicslot60">
-                      <div className="icon190">
-                        <div className="icon191">
-                          <img className="starfilled-icon178" alt="" />
-                        </div>
-                      </div>
-                      <div className="container211">
-                        <div className="value140">Table 1....</div>
-                        <div className="right-content60">
-                          <div className="typography168">⌘X</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="divider78">
-                    <div className="rectangle78" />
-                  </div>
-                </div>
-                <div className="menuitem60">
-                  <div className="container210">
-                    <div className="menuitembasicslot60">
-                      <div className="icon190">
-                        <div className="icon191">
-                          <img className="starfilled-icon178" alt="" />
-                        </div>
-                      </div>
-                      <div className="container211">
-                        <div className="value140">Table ...n</div>
-                        <div className="right-content60">
-                          <div className="typography168">⌘X</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="divider78">
-                    <div className="rectangle78" />
-                  </div>
-                </div>
-                <div className="menuitem65">
-                  <div className="container214">
-                    <div className="menuitembasicslot60">
-                      <div className="icon190">
-                        <div className="icon191">
-                          <img className="starfilled-icon178" alt="" />
-                        </div>
-                      </div>
-                      <div className="container211">
-                        <div className="value140">Field Value</div>
-                        <div className="right-content60">
-                          <div className="typography168">⌘X</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="divider78">
-                    <div className="rectangle78" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="helper69">
-            <div className="text184">Descriptive text</div>
-          </div>
-          <div className="label70">
-            <div className="label-background69">
-              <div className="cutborder69" />
-              <div className="text185">Table</div>
-            </div>
-          </div>
-        </div>
         <div className="overall-siem-ingestion-volume-parent">
           <div className="overall-siem-ingestion3">
             Overall SIEM Ingestion Volume
@@ -509,11 +242,12 @@ const LoggingCost = () => {
           </div>
         </div>
         <div className="group-parent3">
-          <img className="group-child74" alt="" src="../group-33.svg" />
-          <div className="gbday">GB/Day</div>
+          
+          
         </div>
+        <div style={{width:200, position:'absolute', marginLeft:950, marginTop:50}}><RangeSlider/></div>
         <div className="gb13">35GB</div>
-        <div className="gb14">0GB</div>
+        <div className="gb14" style={{marginLeft: -100}}>GB/Day 0GB</div>
         <div className="text-field50">
           <div className="field72">
             <div className="prefix72">
@@ -551,173 +285,25 @@ const LoggingCost = () => {
         <div className="rectangle-parent39">
           <div className="instance-child63" />
           <div className="vector-parent">
-            <img className="rectangle-icon" alt="" src="../rectangle-20.svg" />
-            <img className="group-child75" alt="" src="../rectangle-21.svg" />
-            <img className="group-child76" alt="" src="../rectangle-22.svg" />
+            <StackedAreaChart/>
             <b className="azure2">Azure</b>
             <b className="opsmanager">OpsManager</b>
             <b className="linux1">Linux</b>
           </div>
-          <div className="jan-12-20233">Jan 12, 2023</div>
-          <div className="sep-12-2022">Sep 12, 2022</div>
-          <div className="jun-12-2023">Jun 12, 2023</div>
+          
           <div className="gb15">0 GB</div>
           <div className="gb16">35 GB</div>
           <div className="switch-container">
             <div className="switch2">
               <div className="value140">Detailed View</div>
-              <div className="switch3">
-                <div className="slide2">
-                  <div className="slide3" />
-                </div>
-                <div className="knob1">
-                  <img className="knob-icon1" alt="" src="../knob1.svg" />
-                </div>
-              </div>
+              <ToggleSwitch/>
             </div>
           </div>
         </div>
-        <div className="autocomplete11">
-          <div className="wrapper20">
-            <div className="field69">
-              <div className="prefix69">
-                <div className="icon189">
-                  <img
-                    className="starfilled-icon178"
-                    alt=""
-                    src="../starfilled125.svg"
-                  />
-                </div>
-              </div>
-              <div className="text-wrapper69">
-                <div className="values20">
-                  <div className="chip80">
-                    <div className="container208">
-                      <div className="avatar80">
-                        <div className="avatar81">
-                          <div className="op40">OP</div>
-                        </div>
-                      </div>
-                      <div className="typography166">
-                        <div className="chip81">Chip</div>
-                      </div>
-                      <img
-                        className="cancelfilled-icon40"
-                        alt=""
-                        src="../cancelfilled45.svg"
-                      />
-                    </div>
-                  </div>
-                  <div className="chip80">
-                    <div className="container208">
-                      <div className="avatar80">
-                        <div className="avatar81">
-                          <div className="op40">OP</div>
-                        </div>
-                      </div>
-                      <div className="typography166">
-                        <div className="chip81">Chip</div>
-                      </div>
-                      <img
-                        className="cancelfilled-icon40"
-                        alt=""
-                        src="../cancelfilled46.svg"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="value139">Source System</div>
-              </div>
-              <div className="clear20">
-                <div className="iconbutton94">
-                  <img className="starfilled-icon178" alt="" />
-                </div>
-              </div>
-              <div className="suffix69">
-                <div className="iconbutton95">
-                  <img
-                    className="starfilled-icon178"
-                    alt=""
-                    src="../arrowdropdownfilled25.svg"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="alignment20">
-              <div className="basicmenu20">
-                <div className="menuitem60">
-                  <div className="container210">
-                    <div className="menuitembasicslot60">
-                      <div className="icon190">
-                        <div className="icon191">
-                          <img className="starfilled-icon178" alt="" />
-                        </div>
-                      </div>
-                      <div className="container211">
-                        <div className="value140">Table</div>
-                        <div className="right-content60">
-                          <div className="typography168">⌘X</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="divider78">
-                    <div className="rectangle78" />
-                  </div>
-                </div>
-                <div className="menuitem60">
-                  <div className="container210">
-                    <div className="menuitembasicslot60">
-                      <div className="icon190">
-                        <div className="icon191">
-                          <img className="starfilled-icon178" alt="" />
-                        </div>
-                      </div>
-                      <div className="container211">
-                        <div className="value140">Source System</div>
-                        <div className="right-content60">
-                          <div className="typography168">⌘X</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="divider78">
-                    <div className="rectangle78" />
-                  </div>
-                </div>
-                <div className="menuitem65">
-                  <div className="container214">
-                    <div className="menuitembasicslot60">
-                      <div className="icon190">
-                        <div className="icon191">
-                          <img className="starfilled-icon178" alt="" />
-                        </div>
-                      </div>
-                      <div className="container211">
-                        <div className="value140">Field Value</div>
-                        <div className="right-content60">
-                          <div className="typography168">⌘X</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="divider78">
-                    <div className="rectangle78" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="helper69">
-            <div className="text184">Descriptive text</div>
-          </div>
-          <div className="label72">
-            <div className="label-background69">
-              <div className="cutborder69" />
-              <div className="text189">Source</div>
-            </div>
-          </div>
-        </div>
+        <div className="value22" style={{width:150, marginLeft:470, marginTop: 28}}> Source System
+          <MultiSelectIV3/>
+          
+            </div>  
       </div>
       <div className="logging-cost-inner">
         <div className="autocomplete-group">
@@ -894,7 +480,7 @@ const LoggingCost = () => {
           </div>
         </div>
         <div className="button48" onClick={onButtonContainer2Click}>
-          <div className="container248">
+          <div className="container40">
             <img className="prefix-icon46" alt="" src="../prefix48.svg" />
             <div className="text200">Ingestion Volume</div>
             <img className="prefix-icon46" alt="" src="../suffix48.svg" />

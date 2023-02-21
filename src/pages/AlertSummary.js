@@ -63,21 +63,21 @@ const AlertSummary = () => {
       <div className="navbar1">
         <div className="navbar-item" />
         <div className="button5" onClick={onButtonContainerClick}>
-          <div className="container45">
+          <div className="container40">
             <img className="prefix-icon5" alt="" src="../prefix5.svg" />
             <div className="text14">Payment Sel.</div>
             <img className="prefix-icon5" alt="" src="../suffix.svg" />
           </div>
         </div>
         <div className="button116" onClick={onButtonContainer1Click}>
-          <div className="container45">
+          <div className="container40">
             <img className="prefix-icon5" alt="" src="../prefix6.svg" />
             <div className="text14">Exploration</div>
             <img className="prefix-icon5" alt="" src="../suffix.svg" />
           </div>
         </div>
         <div className="button117" onClick={onButtonContainer2Click}>
-          <div className="container45">
+          <div className="container40">
             <img className="prefix-icon5" alt="" src="../prefix7.svg" />
             <div className="text14">Ingestion Volume</div>
             <img className="prefix-icon5" alt="" src="../suffix7.svg" />
@@ -86,12 +86,12 @@ const AlertSummary = () => {
         <div className="button118" onClick={onButtonContainer3Click}>
           <div className="container45">
             <img className="prefix-icon5" alt="" src="../prefix8.svg" />
-            <div className="text16">Alert Summary</div>
+            <div className="text200">Alert Summary</div>
             <img className="prefix-icon5" alt="" src="../suffix8.svg" />
           </div>
         </div>
         <div className="button9" onClick={onButtonContainer4Click}>
-          <div className="container45">
+          <div className="container40">
             <img className="prefix-icon5" alt="" src="../prefix9.svg" />
             <div className="text14">Cost Analysis</div>
             <img className="prefix-icon5" alt="" src="../suffix.svg" />
@@ -185,79 +185,7 @@ const AlertSummary = () => {
       
       <div className="siem-alert-rule1">SIEM Alert Rule Summary</div>
       <div className="autocomplete5">
-        <div className="wrapper5">
-          <div>
-            
-              <div className="value22"><MultiSelectAS /></div>
-            
-            <div className="suffix7">
-              </div>
-          </div>
-          <div className="alignment5">
-            <div className="basicmenu5">
-              <div className="menuitem15">
-                <div className="container53">
-                  <div className="menuitembasicslot15">
-                    <div className="icon38">
-                      <div className="navigation">
-                        <img className="chevronleftfilled-icon" alt="" />
-                      </div>
-                    </div>
-                    <div className="container54">
-                      <div className="value23">Azure</div>
-                      <div className="right-content15">
-                        <div className="typography47">⌘X</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="divider21">
-                  <div className="rectangle15" />
-                </div>
-              </div>
-              <div className="menuitem15">
-                <div className="container53">
-                  <div className="menuitembasicslot15">
-                    <div className="icon38">
-                      <div className="navigation">
-                        <img className="chevronleftfilled-icon" alt="" />
-                      </div>
-                    </div>
-                    <div className="container54">
-                      <div className="value23">Palo Alto</div>
-                      <div className="right-content15">
-                        <div className="typography47">⌘X</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="divider21">
-                  <div className="rectangle15" />
-                </div>
-              </div>
-              <div className="menuitem15">
-                <div className="container53">
-                  <div className="menuitembasicslot15">
-                    <div className="icon38">
-                      <div className="navigation">
-                        <img className="chevronleftfilled-icon" alt="" />
-                      </div>
-                    </div>
-                    <div className="container54">
-                      <div className="value23">Sentinel One</div>
-                      <div className="right-content15">
-                        <div className="typography47">⌘X</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="divider21">
-                  <div className="rectangle15" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="value22" style={{width:150, marginTop:0, marginLeft:0}}><MultiSelectAS /></div>
         <div className="helper7">
           <div className="text24">Descriptive text</div>
         </div>

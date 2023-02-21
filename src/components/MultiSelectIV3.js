@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import { MultiSelect } from "react-multi-select-component";
 
 const options = [
-  { label: "Azure", value: "Azure" },
-  { label: "Sentinel One", value: "Sentinel One" },
-  { label: "Palo Alto", value: "Palo Alto" },
-];
+  { label: "Table", value: "table" },
+  { label: "Source System", value: "sourcesystem" },
+  ];
 
-const MultiSelectAS = () => {
+const MultiSelectIV3 = () => {
   const [selected, setSelected] = useState([]);
 
   return (
@@ -23,7 +22,7 @@ const MultiSelectAS = () => {
     </div>
   );
 };
-export default MultiSelectAS
+export default MultiSelectIV3
 
 /*const MultiSelecter = () => {
 

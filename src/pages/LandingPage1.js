@@ -1,10 +1,21 @@
 import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import "./LandingPage1.css";
 
 const LandingPage1 = () => {
+  const navigate = useNavigate();
+
   const onLogoContainerClick = useCallback(() => {
     // Please sync "00 Landing Page" to the project
   }, []);
+
+  const onLogoContainer1Click = useCallback(() => {
+    navigate("/");
+  }, [navigate]);
+
+  const onLogoContainer2Click = useCallback(() => {
+    navigate("/00-landing-page2");
+  }, [navigate]);
 
   return (
     <div className="landing-page1">
@@ -371,14 +382,14 @@ const LandingPage1 = () => {
         </div>
       </div>
       <div className="button38">
-        <div className="container199">
+        <div className="container199" onClick={onLogoContainer1Click}>
           <img className="prefix-icon38" alt="" src="../prefix38.svg" />
           <div className="text164">Finish</div>
           <img className="prefix-icon38" alt="" src="../suffix36.svg" />
         </div>
       </div>
       <div className="button39">
-        <div className="container199">
+        <div className="container199" onClick={onLogoContainer2Click}>
           <img className="prefix-icon38" alt="" src="../prefix39.svg" />
           <div className="text164">Back</div>
           <img className="prefix-icon38" alt="" src="../suffix36.svg" />

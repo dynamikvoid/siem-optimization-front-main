@@ -68,7 +68,7 @@ const LandingPage7 = () => {
       <div className="navbar9">
         <div className="navbar-child7" />
         <div className="button56" onClick={onButtonContainerClick}>
-          <div className="container267">
+          <div className="container40">
             <img className="prefix-icon56" alt="" src="../prefix56.svg" />
             <div className="text210">Payment Sel.</div>
             <img className="prefix-icon56" alt="" src="../suffix56.svg" />
@@ -82,21 +82,21 @@ const LandingPage7 = () => {
           </div>
         </div>
         <div className="button58" onClick={onButtonContainer2Click}>
-          <div className="container267">
+          <div className="container40">
             <img className="prefix-icon56" alt="" src="../prefix58.svg" />
             <div className="text210">Ingestion Volume</div>
             <img className="prefix-icon56" alt="" src="../suffix58.svg" />
           </div>
         </div>
         <div className="button59" onClick={onButtonContainer3Click}>
-          <div className="container267">
+          <div className="container40">
             <img className="prefix-icon56" alt="" src="../prefix59.svg" />
             <div className="text210">Alert Summary</div>
             <img className="prefix-icon56" alt="" src="../suffix59.svg" />
           </div>
         </div>
         <div className="button60" onClick={onButtonContainer4Click}>
-          <div className="container267">
+          <div className="container40">
             <img className="prefix-icon56" alt="" src="../prefix60.svg" />
             <div className="text210">Cost Analysis</div>
             <img className="prefix-icon56" alt="" src="../suffix60.svg" />
@@ -106,14 +106,14 @@ const LandingPage7 = () => {
       <div className="navbar10">
         <div className="navbar-child7" />
         <div className="button61">
-          <div className="container267">
+          <div className="container40">
             <img className="prefix-icon56" alt="" src="../prefix61.svg" />
             <div className="text215">My Account</div>
             <img className="prefix-icon56" alt="" src="../suffix61.svg" />
           </div>
         </div>
         <div className="button62">
-          <div className="container267">
+          <div className="container40">
             <img className="prefix-icon56" alt="" src="../prefix62.svg" />
             <div className="text215">Pricing Structure</div>
             <img className="prefix-icon56" alt="" src="../suffix62.svg" />

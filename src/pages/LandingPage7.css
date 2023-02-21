@@ -140,6 +140,9 @@
   line-height: 26px;
   font-weight: 600;
 }
+.container40{
+  white-space: nowrap;
+}
 .container267 {
   overflow: hidden;
   display: flex;

@@ -1,4 +1,6 @@
+import { precisionRound, sum } from "d3";
 import React from "react";
+import { useState,useEffect,useCallback } from 'react';
 import {
   AreaChart,
   Area,
@@ -7,7 +9,37 @@ import {
   CartesianGrid,
   Tooltip
 } from "recharts";
+import moment from "moment";
 
+const StackedAreaChart = () => {
+  
+  const [chartData, setchartData] = useState([]);
+  
+  useEffect(() =>{
+    
+    
+
+    const makeRequest = async () => {
+      try {
+        let response = await fetch('/api/ingvoldata');
+        let json = await response.json();
+        setchartData(json);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    makeRequest();
+    
+   },[]);
+    global.timeStamp = chartData.map(x => moment(x.date).format('YYYY-MM-DD'));
+    global.sourceSystem = chartData.map(x => x.sourcesystem);
+    global.dataSizeazure = chartData.map(y => y.sourcesystem === "Azure" ? (y):(y.daily_datasize_gb));
+    global.dataSizelinux = chartData.map(y => y.sourcesystem === "Linux" ? (y):(y.daily_datasize_gb));
+    global.dataSizeopsmanager = chartData.map(y => y.sourcesystem === "OpsManager" ? (y):(y.daily_datasize_gb));
+    global.totalSizeazure = Math.round(sum(global.dataSizeazure));
+    global.totalSizelinux = Math.round(sum(global.dataSizelinux));
+    global.totalSizeopsmanager = Math.round(sum(global.dataSizeopsmanager));
+    console.log(global.timeStamp) 
 const data = [
   {
     name: "Jun 12, 2023",
@@ -17,9 +49,9 @@ const data = [
   },
   {
     name: "Jul 12, 2023",
-    Linux: 3000,
-    OpsManager: 1398,
-    Azure: 2210
+    Linux: global.totalSizelinux,
+    OpsManager: global.totalSizeopsmanager,
+    Azure: global.totalSizeazure
   },
   {
     name: "Aug 12, 2023",
@@ -53,15 +85,15 @@ const data = [
   }
 ];
 
-export default function StackedAreaChart() {
+
   return (
     <AreaChart
-      width={800}
+      width={870}
       height={300}
       data={data}
       margin={{
         top: 10,
-        right: 30,
+        right: 40,
         left: -80,
         bottom: 0
       }}
@@ -94,3 +126,5 @@ export default function StackedAreaChart() {
     </AreaChart>
   );
 }
+
+export default StackedAreaChart

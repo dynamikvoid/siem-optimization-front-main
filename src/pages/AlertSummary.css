@@ -32,6 +32,7 @@
   flex-direction: row;
   padding: 8px 22px;
   gap: 8px;
+  margin-left: -20px;
 }
 .button5 {
   right: 3.75%;
