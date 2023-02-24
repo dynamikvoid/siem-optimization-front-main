@@ -1,6 +1,8 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CostAnalysis.css";
+import { Card, CardContent } from "@mui/material";
+import BarChartCA from "../components/BarChartCA";
 
 const CostAnalysis = () => {
   const navigate = useNavigate();
@@ -163,134 +165,11 @@ const CostAnalysis = () => {
               </div>
             </div>
             <div className="rectangle-parent27">
-              <div className="instance-child11" />
-              <div className="div2">$0</div>
-              <div className="instance-child12" />
-              <div className="instance-child13" />
-              <div className="instance-child14" />
-              <div className="instance-child15" />
-              <div className="instance-child16" />
-              <div className="instance-child17" />
-              <div className="instance-child18" />
-              <div className="instance-child19" />
-              <div className="instance-child20" />
-              <div className="value25">Value</div>
-              <div className="cost1">Cost</div>
-              <div className="instance-child21" />
-              <div className="instance-child22" />
-              <div className="m-table-1-container">
-                <p className="blank-line">
-                  <span>$12.0M</span>
-                </p>
-                <p className="blank-line">
-                  <span>&nbsp;</span>
-                </p>
-                <p className="table-11">
-                  <span>Table 1</span>
-                </p>
-              </div>
-              <div className="m-table-2-container">
-                <p className="blank-line">
-                  <span>$11.2M</span>
-                </p>
-                <p className="blank-line">
-                  <span>&nbsp;</span>
-                </p>
-                <p className="table-11">
-                  <span>Table 2</span>
-                </p>
-              </div>
-              <div className="m-table-3-container">
-                <p className="blank-line">
-                  <span>$10.7M</span>
-                </p>
-                <p className="blank-line">
-                  <span>&nbsp;</span>
-                </p>
-                <p className="table-11">
-                  <span>Table 3</span>
-                </p>
-              </div>
-              <div className="m-table-4-container">
-                <p className="blank-line">
-                  <span>$8.5M</span>
-                </p>
-                <p className="blank-line">
-                  <span>&nbsp;</span>
-                </p>
-                <p className="table-11">
-                  <span>Table 4</span>
-                </p>
-              </div>
-              <div className="m-table-5-container">
-                <p className="blank-line">
-                  <span>$8.5M</span>
-                </p>
-                <p className="blank-line">
-                  <span>&nbsp;</span>
-                </p>
-                <p className="table-11">
-                  <span>Table 5</span>
-                </p>
-              </div>
-              <div className="m-table-6-container">
-                <p className="blank-line">
-                  <span>$7.5M</span>
-                </p>
-                <p className="blank-line">
-                  <span>&nbsp;</span>
-                </p>
-                <p className="table-11">
-                  <span>Table 6</span>
-                </p>
-              </div>
-              <div className="m-table-7-container">
-                <p className="blank-line">
-                  <span>$5.5M</span>
-                </p>
-                <p className="blank-line">
-                  <span>&nbsp;</span>
-                </p>
-                <p className="table-11">
-                  <span>Table 7</span>
-                </p>
-              </div>
-              <div className="m-table-8-container">
-                <p className="blank-line">$0.0M</p>
-                <p className="blank-line">&nbsp;</p>
-                <p className="azure-diagnostics">Table 8</p>
-              </div>
-              <div className="m-table-9-container">
-                <p className="blank-line">-$3.5M</p>
-                <p className="blank-line">&nbsp;</p>
-                <p className="azure-diagnostics">Table 9</p>
-              </div>
-              <div className="roi1">ROI</div>
-              <img
-                className="southfilled-icon"
-                alt=""
-                src="../southfilled.svg"
-              />
-              <div className="switch-wrapper">
-                <div className="switch">
-                  <div className="label24">ROI View</div>
-                  <div className="switch1">
-                    <div className="slide">
-                      <div className="slide1" />
-                    </div>
-                    <div className="knob">
-                      <img className="knob-icon" alt="" src="../knob.svg" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="iconbutton26">
-                <img
-                  className="skipnextfilled-icon"
-                  alt=""
-                  src="../skipnextfilled.svg"
-                />
-              </div>
+              <Card sx={{ minWidth: 200, maxWidth:1210, minHeight:480, marginTop:1,marginLeft:0, marginRight:-2}}>
+                <CardContent>
+                  <div id="my-app"><BarChartCA/></div>
+                </CardContent></Card>
+              
             </div>
             <div className="risk-roi-cost">Risk ROI Cost Analysis</div>
             <div className="autocomplete">

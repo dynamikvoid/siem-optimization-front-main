@@ -4,12 +4,12 @@ import ReactSwitch from 'react-switch';
 function ToggleSwitch() {
   const [checked, setChecked] = useState(true);
 
-  const handleChange = val => {
+  const handleChange = (val) => {
     setChecked(val)
   }
 
   return (
-    <div className="app" style={{textAlign: "center"}}>
+    <div className="app" style={{textAlign: "left"}}>
       
       <ReactSwitch
         checked={checked}

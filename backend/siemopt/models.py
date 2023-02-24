@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 class siemopt(models.Model):
     title=models.CharField(max_length=150)
@@ -41,6 +42,8 @@ class AlertSummaryData(models.Model):
 
     def fidelity_float(self):
         return float(self.fidelity)
+    
+    
 
         # string representation of the class
     def __str__(self):
@@ -66,6 +69,10 @@ class IngestionVolumeData(models.Model):
     class Meta:
         managed = False
         db_table = 'ingestion_volume_data'
+        
+    def datetime_format(self):
+        return datetime.strptime(self.date, '%Y-%m-%dT%H:%M:%S.%f%z').astimezone(('America/New_York')).strftime('%I:%M %p')
+   
         
     def __str__(self):
  

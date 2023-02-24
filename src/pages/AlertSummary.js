@@ -19,6 +19,8 @@ import { useState,useEffect } from "react";
 import GetAsData from '../components/GetTableData';
 import GetData from "../components/GetData";
 import MultiSelectAS from '../components/MultiSelectAS';
+import { Card } from "@mui/material";
+import { CardContent } from "semantic-ui-react";
 
 
 const AlertSummary = () => {
@@ -117,19 +119,19 @@ const AlertSummary = () => {
         </div>
       </div>
        <div className="group-parent2">
-        <div className="rectangle-parent6">
-          <div className="group-child32" />
-          <div className="fidelity3">Fidelity</div>
+        <div>
+          <Card sx={{ minWidth: 200, maxWidth:1210, minHeight:480, marginTop:1,marginLeft:0, marginRight:-2}}>
+            <CardContent><div className="fidelity3">Fidelity</div>
           <div className="parent2">
-            <div className="div18">0</div>
-            <div className="div19">0.5</div>
-            <div className="div20">1</div>
+            <div className="div18" style={{marginTop:20}}></div>
+            <div className="div19" style={{marginTop:20}}></div>
+            <div className="div20" style={{marginTop:20}}></div>
           </div>
         
           <div className="frequency3">Frequency</div>
-          <div className="k9">10K</div>
-          <div className="k10">5K</div>
-          <div className="div21">0</div>
+          <div className="k9"></div>
+          <div className="k10"></div>
+          <div className="div21"></div>
           <div className="group-child33" alt="" style={{ height: '100px'}}>
             <ScatterChartGraph/>
           </div>
@@ -151,14 +153,15 @@ const AlertSummary = () => {
               <div className="informational">Informational</div>
             </div>
           </div>
-          <div className="group-child38" alt="">
+          <div className="group-child388">
           <RangeSlider/>
           </div>
           <div id="root"></div>
           <div className="group-child39" alt="">
           <RangeSliderVertical/>
           </div>
-          <div className="criticality2">{`Criticality `}</div>
+          <div className="criticality2">{`Criticality `}</div></CardContent></Card>
+          
         </div>
         <img
           className="playarrowfilled-icon"

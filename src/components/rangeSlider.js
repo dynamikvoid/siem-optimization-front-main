@@ -1,24 +1,40 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
+import { useQuery,Mutation } from '@tanstack/react-query';
 import Slider from '@mui/material/Slider';
+import axios from 'axios';
 
 function valuetext(value) {
   return `${value}`;
 }
 
 export default function RangeSlider() {
-  const [value, setValue] = React.useState([0, 100]);
+  const [value, setValue] = React.useState([0, 1]);
+
+  const {data, isLoading} = useQuery(["id"], async ()=>{
+    const res = await axios.get('/api/asdata');
+    return res.data;
+  });
+    //console.log(data)
+
+  if (isLoading) {
+    return <p>Loading...</p>
+  }
+
+  global.val = data.map(x => x.fidelity)
 
   const handleChange = (event, newValue) => {
+    
     setValue(newValue);
   };
 
+  console.log(value)
   return (
     <div sx={{ width: 300 }}>
       <Slider
         getAriaLabel={() => 'Fidelity'}
-        minvalue='0'
-        maxvalue='1'
+        min={0}
+        max={1}
+        step={.01}
         value={value}
         onChange={handleChange}
         valueLabelDisplay="auto"

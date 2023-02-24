@@ -1,6 +1,11 @@
 import React, { useState,useEffect,useCallback } from 'react';
 import { ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid, Cell, Tooltip} from 'recharts';
 import axios from 'axios';
+import { namespace, zoom } from 'd3';
+import { borderColor } from '@mui/system';
+import { Popover, Zoom } from '@mui/material';
+import RangeSlider from './rangeSlider';
+
 
 
 
@@ -28,7 +33,29 @@ const ScatterChartGraph = () => {
       global.yFrequency = chartData.map(y => y.frequency);
       //console.log(chartData)
       //console.log(global.yFrequency)
-      const data = [
+    const data1 = [];
+     
+      for (let n = 0; n <= chartData.length; n++) {
+        let m = n+1;
+        let d = {
+          x: chartData.slice(n,m).map(x => x.fidelity),
+          y: chartData.slice(n,m).map(y => y.frequency),
+          z: chartData.slice(n,m).filter(v => {
+            return (v?.severity_medium || v?.severity_high || v?.severity_low || v?.severity_informational)
+          }).map(v => (v?.severity_medium || v?.severity_high || v?.severity_low || v?.severity_informational))
+           
+      };
+      data1.push(d);
+    }
+    /*console.log(chartData.slice(0,1).filter(v => {
+      return (v?.severity_medium || v?.severity_high || v?.severity_low || v?.severity_informational)
+    }).map(v =>  {
+      return (v?.severity_medium || v?.severity_high || v?.severity_low || v?.severity_informational)}))*/
+    /*console.log(chartData.slice(0,1).filter(v => {
+      return (v?.severity_medium || v?.severity_high || v?.severity_low || v?.severity_informational)
+    }).map(v => (v?.severity_medium || v?.severity_high || v?.severity_low || v?.severity_informational)))*/
+      
+      /*const data = [
       { x: global.xFidelity[0], y: global.yFrequency[0], colourType:"rgba(214, 0, 0, 0.75)" },
       { x: global.xFidelity[1], y: global.yFrequency[1], colourType: "rgba(214, 0, 0, 0.75)" },
       { x: global.xFidelity[2], y: global.yFrequency[2], colourType:"rgba(214, 0, 0, 0.75)" },
@@ -55,9 +82,8 @@ const ScatterChartGraph = () => {
       { x: global.xFidelity[23], y: global.yFrequency[23], colourType:"rgba(214, 0, 0, 0.75)" },
       { x: global.xFidelity[24], y: global.yFrequency[24], colourType:"rgba(214, 0, 0, 0.75)" },
       { x: global.xFidelity[25], y: global.yFrequency[25], colourType:"rgba(232, 252, 0, 0.75)" }
-      ];
-    /*const data = [
-   { x: .3, y: 45 },]*/
+      ];*/
+    
 
     const CustomTooltip = ({ active, payload, label }) => {
       if (active && payload && payload.length) {
@@ -86,81 +112,15 @@ const ScatterChartGraph = () => {
           <YAxis type="number" dataKey="y" axisLine={false} tickLine={false} hide/>
           <ZAxis range={[500, 120]} axisLine={false} tickLine={false} hide/>
           <Tooltip content={<CustomTooltip />} wrapperStyle={{ borderWidth: 0, paddingLeft: "10px", paddingRight: "10px" }}/>
-          <Scatter data={data}>
-            {data.map((entry, index) => (
+          <Scatter data={data1} stroke="#5A5A5A" strokeWidth={1}>
+            {data1.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={entry.colourType ?? "#8884d8"} />
             ))}
             </Scatter>
       </ScatterChart>
   );
    
-    /*let [xFidelity, setxFidelity] = useState([]);
-    let [yFrequency, setyFrequency] = useState([]);
-
-
-    const chart = () => {
-      let xFid = [];
-      let yFeq = [];
-      axios.get('/api/asdata')
-      .then(res => {
-        //console.log(res)
-        for(const dataObj of res.data){
-          xFid.push(parseFloat(dataObj.fidelity))
-          yFeq.push(parseInt(dataObj.frequency))
-        }
-        {return(res)}
-        
-      })
-      .catch(err => {
-        console.log(err)
-      });
-      //console.log(xFid,yFeq)
-      //console.log(xFid, yFeq)
-
-      setxFidelity({
-        x : xFid
-      })
-      setyFrequency({
-       y: yFeq
-      })
-      
-    }
-    
-    useEffect(() => {
-      chart();
-    }, []);
-
-    let x = [xFidelity];
-    let y = [yFrequency];
-    
    
-    
-    // --> 2.)
-    
-    //return xFidelity.map((valuex, index) => <li key={index}>{valuex}</li>);
-
-        //console.log(items)
-        
-  // Sample data
-  const data = [
-      { x: .2, y: 45 },
-      
-  ];
-
-  return (
-      <ScatterChart width={850} height={300}>
-          
-          <XAxis type="number" dataKey="x" axisLine={false} tickLine={false} hide/>
-          <YAxis type="number" dataKey="y" axisLine={false} tickLine={false} hide/>
-          <ZAxis range={[500, 120]} axisLine={false} tickLine={false} hide/>
-          <Scatter data={data}>
-            {data.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={entry.colourType ?? "#8884d8"} />
-            ))}
-            </Scatter>
-      </ScatterChart>
-  );
-}*/
 
 }
 export default ScatterChartGraph

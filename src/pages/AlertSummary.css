@@ -327,7 +327,16 @@
   color: #000;
   font-family: "Open Sans";
 }
-.group-child38,
+.group-child388{
+  position: absolute;
+  height: 700;
+  width: 890px;
+  top: 200;
+  right: 0;
+  bottom: 30px;
+  left: 120px;
+  border-radius: 15px;  
+}
 .group-child39 {
   position: absolute;
   top: 404px;

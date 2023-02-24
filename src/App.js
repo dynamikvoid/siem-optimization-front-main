@@ -41,8 +41,10 @@ import GroupComponent11 from "./pages/GroupComponent11";
 import GroupComponent12 from "./pages/GroupComponent12";
 import AlertSummary from "./pages/AlertSummary";
 import { useEffect } from "react";
+import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 
 function App() {
+  const client = new QueryClient();
   const action = useNavigationType();
   const location = useLocation();
   const pathname = location.pathname;
@@ -219,6 +221,7 @@ function App() {
   }, [pathname]);
 
   return (
+    <QueryClientProvider client={client}>
     <Routes>
       <Route path="/" element={<LandingPage7 />} />
 
@@ -295,6 +298,7 @@ function App() {
 
       <Route path="/01-alert-summary" element={<AlertSummary />} />
     </Routes>
+    </QueryClientProvider>
   );
 }
 export default App;

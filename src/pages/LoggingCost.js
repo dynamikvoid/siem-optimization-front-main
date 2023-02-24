@@ -7,7 +7,22 @@ import MultiSelectIV3 from "../components/MultiSelectIV3";
 import RangeSlider from "../components/rangeSlider";
 import StackedAreaChart from "../components/StackedAreaChart";
 import ToggleSwitch from "../components/ToggleSwitch";
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import RM from "../components/SwitchTab";
 
+const bull = (
+  <Box
+    component="span"
+    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
+  >
+    •
+  </Box>
+);
 
 const LoggingCost = () => {
   const navigate = useNavigate();
@@ -40,10 +55,9 @@ const LoggingCost = () => {
     <div className="logging-cost4">
       <div className="siem-ingestion-volume-by-parent">
         <div className="siem-ingestion-volume2">{`SIEM Ingestion Volume by `}</div>
-        <div className="value22" style={{width:150, marginLeft:750, marginTop: -6}}> Source System
+        <div className="value22" style={{width:150, marginLeft:750, marginTop: -6}}> Source Systems
           <MultiSelectIV1/>
-          
-            </div>
+          </div>
           <div className="value22" style={{width:150, marginLeft:550, marginTop: -63}}> Table
           <MultiSelectIV2/>
           
@@ -241,7 +255,7 @@ const LoggingCost = () => {
             </div>
           </div>
         </div>
-        <div className="group-parent3">
+        <div>
           
           
         </div>
@@ -282,28 +296,35 @@ const LoggingCost = () => {
             </div>
           </div>
         </div>
-        <div className="rectangle-parent39">
-          <div className="instance-child63" />
-          <div className="vector-parent">
-            <StackedAreaChart/>
-            <b className="azure2">Azure</b>
-            <b className="opsmanager">OpsManager</b>
-            <b className="linux1">Linux</b>
-          </div>
+        <div className="value22" style={{width:150, marginLeft:470, marginTop: 27}}> Sources
+              <MultiSelectIV3/></div>
+        <Card sx={{ minWidth: 200, maxWidth:1200, minHeight:500, marginTop:1,marginLeft:2}}>
+            <CardContent >
+            
+              <div className="instance-child63" />
+              
+                  
+              
+              
+              <div className="vector-parent">
+                
+                <RM/>
+                <b className="azure"></b>
+                <b className="opsmanager"></b>
+                <b className="linux1"></b>
+              </div>
+              
+              <div className="gb15" style={{marginTop:-330}}>0 GB</div>
+              <div className="gb16" style={{marginTop:20}}>35 GB</div>
+              <div className="switch-container">
+                <div className="switch2">
+                  
+                </div>
+              </div>
+            </CardContent>
+          </Card>
           
-          <div className="gb15">0 GB</div>
-          <div className="gb16">35 GB</div>
-          <div className="switch-container">
-            <div className="switch2">
-              <div className="value140">Detailed View</div>
-              <ToggleSwitch/>
-            </div>
-          </div>
-        </div>
-        <div className="value22" style={{width:150, marginLeft:470, marginTop: 28}}> Source System
-          <MultiSelectIV3/>
-          
-            </div>  
+        
       </div>
       <div className="logging-cost-inner">
         <div className="autocomplete-group">
