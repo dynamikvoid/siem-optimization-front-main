@@ -5,7 +5,9 @@ import MultiSelectEx1 from "../components/MultiSelectEx1";
 import MultiSelectEx2 from "../components/MultiSelectEx2";
 import MultiSelectEx3 from "../components/MultiSelectEx3";
 import MultiSelectEx4 from "../components/MultiSelectEx4";
-import debounce from "../components/ResizeRenderer";
+import MultiSelectEx5 from "../components/MultiSelectEx5";
+import { Card,CardContent } from "semantic-ui-react";
+import SankeyChart from "../components/SankeyGraph";
 
 const Exploration = () => {
   const navigate = useNavigate();
@@ -37,11 +39,45 @@ const Exploration = () => {
   return (
     
     <div className="exploration">
-      <div className="downloadfilled-parent">
+      
         <img className="downloadfilled-icon1" alt="" />
         <div className="autocomplete3">
-          <div className="wrapper15">
+        
+          <div className="wrapper154">
+          
+          <div className="dimensional-relationships">
+            Dimensional Relationships
+          </div>
+          <div>
+          <Card style={{ position:'relative', minWidth: 1250, maxWidth:1300, minHeight:450, marginTop:200, marginLeft:-500}}>
+            <CardContent>
+              <div style={{marginLeft:150}}>
+                <SankeyChart/>
+              </div>
             
+            </CardContent>
+          </Card>
+          </div>
+          <div className="value22" style={{width:150, marginLeft:-200, marginTop:-600}}>Node1
+              <MultiSelectEx1/>
+              
+            </div>
+            <div className="value22" style={{width:200, marginLeft:-40, marginTop:-64}}>Table
+          
+              <MultiSelectEx2/>
+            </div>
+            <div className="value22" style={{width:150, marginLeft:190, marginTop:-64}}>Source System
+          
+              <MultiSelectEx3/>
+            </div>
+            <div className="value22" style={{width:150, marginLeft:350, marginTop:-64}}>Alert Rule
+          
+              <MultiSelectEx4/>
+            </div>
+            <div className="value22" style={{width:200, marginLeft:510, marginTop:-64}}>Incident
+          
+              <MultiSelectEx5/>
+            </div>
             <div className="alignment15">
               <div className="basicmenu15">
                 <div className="menuitem45">
@@ -223,50 +259,18 @@ const Exploration = () => {
             </p>
           </div>
         </div>
-        <div className="rectangle-parent36">
-          <div className="group-child51" />
-          <div className="dimensional-relationships">
-            Dimensional Relationships
-          </div>
-          <div className="image-1">
-            <img className="image-1-icon" alt="" src="../image-1@2x.png" />
-          </div>
+        
+          
+          
+          
           <div className="autocomplete7">
-            <div className="value22" style={{width:150, marginLeft:-20}}>Node1
-              <MultiSelectEx1/>
-              
-            </div>
-            <div className="value22" style={{width:200, marginLeft:150, marginTop:-67}}>Table
-          
-              <MultiSelectEx2/>
-            </div>
-            <div className="value22" style={{width:150, marginLeft:380, marginTop:-67}}>Source System
-          
-              <MultiSelectEx3/>
-            </div>
-            <div className="value22" style={{width:150, marginLeft:550, marginTop:-67}}>Alert Rule
-          
-              <MultiSelectEx4/>
-            </div>
-            <div className="value22" style={{width:200, marginLeft:730, marginTop:-67}}>Incident
-          
-              <MultiSelectEx4/>
-            </div>
+            
             
           </div>
-          <div className="rectangle-parent37">
-            <div className="group-child52" />
-            <div className="group-child53" />
-            <div className="div11">+</div>
-            <div className="div12">-</div>
-          </div>
-        </div>
-        <img
-          className="fullscreenfilled-icon"
-          alt=""
-          src="../fullscreenfilled.svg"
-        />
-      </div>
+          
+        
+        
+      
       <div className="navbar6">
         <div className="navbar-child4" />
         <div className="button31" onClick={onButtonContainerClick}>
@@ -327,7 +331,7 @@ const Exploration = () => {
         className="downloadfilled-icon2"
         alt=""
         src="../downloadfilled1.svg"
-      />
+       style={{marginLeft:10,marginTop:17}}/>
     </div>
     
   );

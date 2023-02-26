@@ -2,27 +2,27 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 
-function valuetext(value) {
-  return `${value}`;
+function valueVtext(vvalue) {
+  return `${vvalue}`;
 }
 
 export default function RangeSliderVertical() {
-  const [value, setValue] = React.useState([0, 10000]);
+  const [value1, setValue1] = React.useState([0, 10000]);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+  const handleVChange = (event, newvValue) => {
+    setValue(newvValue);
   };
 
   return (
     <div style={{ height: 300, marginTop: 50 }}>
       <Slider
         getAriaLabel={() => 'Temperature range'}
-        value={value}
-        onChange={handleChange}
+        value={value1}
+        onChange={handleVChange}
         valueLabelDisplay="auto"
         minvalue='0'
         maxvalue='10000'
-        getAriaValueText={valuetext}
+        getAriaValueText={valueVtext}
         orientation="vertical"
        />
     </div>

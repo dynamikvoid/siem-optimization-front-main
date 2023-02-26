@@ -154,11 +154,11 @@ const AlertSummary = () => {
             </div>
           </div>
           <div className="group-child388">
-          <RangeSlider/>
+          
           </div>
           <div id="root"></div>
           <div className="group-child39" alt="">
-          <RangeSliderVertical/>
+          
           </div>
           <div className="criticality2">{`Criticality `}</div></CardContent></Card>
           

@@ -527,11 +527,15 @@
   background-color: #fff;
 }
 .dimensional-relationships {
-  position: absolute;
-  top: 112px;
-  left: 15px;
-  line-height: 26px;
+  position: relative;
+  top: 180px;
+  left: -450px;
+
+  font-size: 32px;
+  color: #000;
+  line-height: 133.4%;
   font-weight: 300;
+  white-space: nowrap;
   font-family: Inter;
 }
 .image-1-icon {
