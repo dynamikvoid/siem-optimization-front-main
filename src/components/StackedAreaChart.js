@@ -113,7 +113,7 @@ const CustomTooltip = ({ active, payload, label }) => {
   return (
     <AreaChart
       width={870}
-      height={300}
+      height={350}
       data={sortedData}
       margin={{
         top: 10,

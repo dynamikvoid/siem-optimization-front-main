@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback,useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LoggingCost.css";
 import MultiSelectIV1 from "../components/MultiSelectIV1";
@@ -15,8 +15,26 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import RM from "../components/SwitchTab";
 import LineChartIV from "../components/LineChartIV";
+import ScatterChartGraph from "../components/ScatterPlot";
+import { TextField,MenuItem } from "@mui/material";
+import ChartTableIV from "../components/ChartTableIV";
 
 
+const currencies = [
+  {
+    value: 'Days',
+    label: 'Days',
+  },
+  {
+    value: 'Months',
+    label: 'Months',
+  },
+  {
+    value: 'Years',
+    label: 'Years',
+  },
+  
+];
 
 const bull = (
   <Box
@@ -54,6 +72,12 @@ const LoggingCost = () => {
     navigate("/");
   }, [navigate]);
 
+  const [toggle, setToggle] = useState('');
+  const checkedState = (val) => {
+    setToggle(val);
+    console.log("checkedState ", val);
+  };
+
   return (
     <div className="logging-cost4">
       <div className="siem-ingestion-volume-by-parent">
@@ -69,7 +93,33 @@ const LoggingCost = () => {
           <div className="overall-siem-ingestion3" style={{marginTop:-50}}>
             Overall SIEM Ingestion Volume
           </div>
-          <Card sx={{ minWidth: 200, maxWidth:1200, minHeight:700, marginTop:2,marginLeft:-4}}>
+          <div>
+        <TextField
+          helperText="Forecast&nbsp;the&nbsp;Next"
+          label="No. of"
+          id="outlined-size-small"
+          defaultValue="90"
+          size="small"
+          style={{position:'absolute', marginLeft:900, maxWidth:100, marginTop:-42}}
+        />
+          <TextField
+          id="outlined-select"
+          size="small"
+          select
+          label="Select"
+          defaultValue='Days'
+          
+          style={{position:'absolute', marginLeft:1010, minWidth:100, marginTop:-42}}
+        >
+          {currencies.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+          
+        </div>          
+          <Card sx={{ minWidth: 200, maxWidth:1200, minHeight:700, marginTop:3,marginLeft:-4}}>
             <CardContent>
             
             <LineChartIV/>
@@ -84,53 +134,52 @@ const LoggingCost = () => {
         <div style={{width:200, position:'absolute', marginLeft:950, marginTop:50}}><RangeSlider/></div>
         <div className="gb13">35GB</div>
         <div className="gb14" style={{marginLeft: -100}}>GB/Day 0GB</div>
-        <div className="text-field50">
-          <div className="field72">
-            <div className="prefix72">
-              <div className="icon189">
-                <img
-                  className="starfilled-icon178"
-                  alt=""
-                  src="../starfilled123.svg"
-                />
-              </div>
-            </div>
-            <div className="text-wrapper72">
-              <div className="value151">90</div>
-            </div>
-            <div className="suffix72">
-              <div className="iconbutton100">
-                <img
-                  className="starfilled-icon178"
-                  alt=""
-                  src="../starfilled124.svg"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="helper72">
-            <div className="text190">Blue</div>
-          </div>
-          <div className="label72">
-            <div className="label-background69">
-              <div className="cutborder69" />
-              <div className="text189">Date Range</div>
-            </div>
-          </div>
+        <div>
+        <TextField
+          label="See the Last"
+          id="outlined-size-small"
+          defaultValue="90"
+          size="small"
+          style={{position:'absolute', marginLeft:950, maxWidth:100, marginTop:-42}}
+        />
+          <TextField
+          id="outlined-select"
+          size="small"
+          select
+          label="Select"
+          defaultValue='Days'
+          
+          style={{position:'absolute', marginLeft:1060, minWidth:100, marginTop:-42}}
+        >
+          {currencies.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+        
         </div>
         <div className="value22" style={{width:150, marginLeft:470, marginTop: 27}}> Sources
               <MultiSelectIV3/></div>
+
         <Card sx={{ minWidth: 200, maxWidth:1200, minHeight:450, marginTop:1,marginLeft:2}}>
-            <CardContent >
+            <CardContent style={{minWidth:900}}>
+
             
-              <div className="instance-child63" />
-              
+            <p style={{fontSize:14, marginLeft:40, marginTop:6}}>Detailed View</p>
                   
               
               
-              <div className="vector-parent">
-                
-                <RM/>
+                  <div className="vector-parent">
+                    
+                  
+                  <ToggleSwitch checkedState={checkedState} />
+                {toggle ? <div><ChartTableIV />
+                <div className="instance-child63" />
+                       
+                <div className="switch-container">
+                  <div className="switch2"></div>
+                </div></div> : <div><StackedAreaChart /></div>}
                 <b className="azure"></b>
                 <b className="opsmanager"></b>
                 <b className="linux1"></b>
@@ -148,159 +197,7 @@ const LoggingCost = () => {
           
         
       </div>
-      <div className="logging-cost-inner">
-        <div className="autocomplete-group">
-          <div className="autocomplete-group">
-            <div className="autocomplete-group">
-              <div className="autocomplete10">
-                <div className="wrapper20">
-                  <div className="field69">
-                    <div className="prefix69">
-                      <div className="icon189">
-                        <img
-                          className="starfilled-icon178"
-                          alt=""
-                          src="../starfilled126.svg"
-                        />
-                      </div>
-                    </div>
-                    <div className="text-wrapper69">
-                      <div className="values20">
-                        <div className="chip80">
-                          <div className="container208">
-                            <div className="avatar80">
-                              <div className="avatar81">
-                                <div className="op40">OP</div>
-                              </div>
-                            </div>
-                            <div className="typography166">
-                              <div className="chip81">Chip</div>
-                            </div>
-                            <img
-                              className="cancelfilled-icon40"
-                              alt=""
-                              src="../cancelfilled47.svg"
-                            />
-                          </div>
-                        </div>
-                        <div className="chip80">
-                          <div className="container208">
-                            <div className="avatar80">
-                              <div className="avatar81">
-                                <div className="op40">OP</div>
-                              </div>
-                            </div>
-                            <div className="typography166">
-                              <div className="chip81">Chip</div>
-                            </div>
-                            <img
-                              className="cancelfilled-icon40"
-                              alt=""
-                              src="../cancelfilled48.svg"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="value139">Days</div>
-                    </div>
-                    <div className="clear20">
-                      <div className="iconbutton94">
-                        <img className="starfilled-icon178" alt="" />
-                      </div>
-                    </div>
-                    <div className="suffix69">
-                      <div className="iconbutton95">
-                        <img
-                          className="starfilled-icon178"
-                          alt=""
-                          src="../arrowdropdownfilled26.svg"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="alignment20">
-                    <div className="basicmenu20">
-                      <div className="menuitem60">
-                        <div className="container226">
-                          <div className="menuitembasicslot66">
-                            <div className="icon190">
-                              <div className="icon191">
-                                <img className="starfilled-icon178" alt="" />
-                              </div>
-                            </div>
-                            <div className="container211">
-                              <div className="value140">Days</div>
-                              <div className="right-content60">
-                                <div className="typography168">⌘X</div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="divider84">
-                          <div className="rectangle78" />
-                        </div>
-                      </div>
-                      <div className="menuitem60">
-                        <div className="container226">
-                          <div className="menuitembasicslot66">
-                            <div className="icon190">
-                              <div className="icon191">
-                                <img className="starfilled-icon178" alt="" />
-                              </div>
-                            </div>
-                            <div className="container211">
-                              <div className="value140">Months</div>
-                              <div className="right-content60">
-                                <div className="typography168">⌘X</div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="divider84">
-                          <div className="rectangle78" />
-                        </div>
-                      </div>
-                      <div className="menuitem60">
-                        <div className="container214">
-                          <div className="menuitembasicslot66">
-                            <div className="icon190">
-                              <div className="icon191">
-                                <img className="starfilled-icon178" alt="" />
-                              </div>
-                            </div>
-                            <div className="container211">
-                              <div className="value140">Years</div>
-                              <div className="right-content60">
-                                <div className="typography168">⌘X</div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="divider84">
-                          <div className="rectangle78" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="helper71">
-                  <div className="text184">Descriptive text</div>
-                </div>
-                <div className="label72">
-                  <div className="label-background69">
-                    <div className="cutborder69" />
-                    <div className="text189">Source</div>
-                  </div>
-                </div>
-              </div>
-              <div className="group-child77" />
-              <div className="forecast-the-next">{`See the last `}</div>
-              <img className="group-child78" alt="" src="../ellipse-132.svg" />
-              <div className="div19">?</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      
       <img
         className="downloadfilled-icon3"
         alt=""

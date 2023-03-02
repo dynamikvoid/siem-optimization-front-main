@@ -17,7 +17,7 @@ export function updateValue () {
 }
 
 export default function RangeSlider() {
-  const [value, setValue] = React.useState([0, 1]);
+  const [value, setValue] = React.useState([0, 35000]);
 
   /*const {data, isLoading} = useQuery(["id"], async ()=>{
     const res = await axios.get('/api/asdata');
@@ -33,7 +33,7 @@ export default function RangeSlider() {
 
   const handleChange = (event, newValue) => {
     if (newValue === undefined) {
-      global.updValue = [0,1]
+      global.updValue = [0,35000]
       setValue(global.updValue);
     }
     else {
@@ -45,10 +45,7 @@ export default function RangeSlider() {
   };
 
   
-  const twoCalls = e => {
-    handleChange()
-    this.ScatterChartGraph()
-  }
+  
 
   //console.log(value)
  
@@ -58,10 +55,10 @@ export default function RangeSlider() {
       <Slider
         getAriaLabel={() => 'Fidelity'}
         min={0}
-        max={1}
-        step={.001}
+        max={35000}
+        step={1000}
         value={value}
-        onChange={twoCalls}
+        onChange={handleChange}
         valueLabelDisplay="auto"
         getAriaValueText={valuetext}
       />

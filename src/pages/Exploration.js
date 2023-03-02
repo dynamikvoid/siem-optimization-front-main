@@ -8,6 +8,9 @@ import MultiSelectEx4 from "../components/MultiSelectEx4";
 import MultiSelectEx5 from "../components/MultiSelectEx5";
 import { Card,CardContent } from "semantic-ui-react";
 import SankeyChart from "../components/SankeyGraph";
+import { CardTab, TabSwitcher, TabContent } from "../components/TabCardEx";
+import "../components/TabCardEx.css";
+import HSBarChartEx from "../components/HSBarChartEx";
 
 const Exploration = () => {
   const navigate = useNavigate();
@@ -78,6 +81,32 @@ const Exploration = () => {
           
               <MultiSelectEx5/>
             </div>
+
+            <div className="m-8 bg-gray-200 rounded-sm shadow-lg" style={{marginTop:650, marginLeft:-500, minHeight:180,minWidth:1300}}>
+      <CardTab>
+        <div>
+          <TabSwitcher tabId={1}>
+            <div className="p-2">Source</div>
+          </TabSwitcher>
+          <TabSwitcher tabId={2}>
+            <div className="p-2">Table</div>
+          </TabSwitcher>
+          <TabSwitcher tabId={3}>
+            <div className="p-2">Alert Rule</div>
+          </TabSwitcher>
+        
+        <TabSwitcher tabId={4}>
+            <div className="p-2">Incident</div>
+          </TabSwitcher>
+          </div>
+        <div className="p-2">
+          <TabContent id={1}><HSBarChartEx/></TabContent>
+          <TabContent id={2}><HSBarChartEx/></TabContent>
+          <TabContent id={3}><HSBarChartEx/></TabContent>
+          <TabContent id={4}><HSBarChartEx/></TabContent>
+        </div>
+      </CardTab>
+    </div>
             <div className="alignment15">
               <div className="basicmenu15">
                 <div className="menuitem45">
@@ -221,44 +250,7 @@ const Exploration = () => {
           
           
        
-        <div className="rectangle-parent35">
-          <div className="group-child47" />
-          <b className="source">Source</b>
-          <div className="table6">Table</div>
-          <div className="alert-rule">
-            <p className="azure">Alert Rule</p>
-          </div>
-          <div className="incident">
-            <p className="azure">Incident</p>
-          </div>
-          <div className="group-child48" />
-          <div className="azure-527">
-            <p className="azure">
-              <b>Azure</b>
-            </p>
-            <p className="p">
-              <span>52.7%</span>
-            </p>
-          </div>
-          <div className="group-child49" />
-          <div className="group-child50" />
-          <div className="linux-171">
-            <p className="azure">
-              <b>Linux</b>
-            </p>
-            <p className="p">
-              <span>17.1%</span>
-            </p>
-          </div>
-          <div className="opsmanagement-302">
-            <p className="azure">
-              <b>OpsManagement</b>
-            </p>
-            <p className="p">
-              <span>30.2%</span>
-            </p>
-          </div>
-        </div>
+        
         
           
           
