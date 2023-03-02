@@ -64,6 +64,7 @@ global.i = 0;
     let m = n+1;
   let d = {
     date: chartData.slice(n,m).map(x => moment(x.date).format('YYYY-MM-DD')),
+    
     Linux: chartData.filter(linux => linux.sourcesystem ==="Linux" && linux.sourceSystem !== null)
     .slice(n,m)
     .map(az => az.daily_datasize_gb),
@@ -78,13 +79,13 @@ global.i = 0;
    // Azure: dataSizeazure.map(y => y.daily_datasize_gb),
   };
 
- // c.push(d);
+ //console.log(d)
 //}
   data1.push(d);
 }
 
-const sortedData1 = data1?.map(obj => { return { ...obj, date: new Date(obj.date) } })
-.sort((a, b) => b.date - a.date)
+const sortedData1 = data1?.map(obj => { return { ...obj, date: new Date(obj.date).toLocaleDateString()} })
+const sortedData = sortedData1.sort((a, b) => b.date - a.date)
 
 //console.log(data1)
 
@@ -113,7 +114,7 @@ const CustomTooltip = ({ active, payload, label }) => {
     <AreaChart
       width={870}
       height={300}
-      data={sortedData1}
+      data={sortedData}
       margin={{
         top: 10,
         right: 40,
@@ -122,7 +123,7 @@ const CustomTooltip = ({ active, payload, label }) => {
       }}
     >
       
-      <XAxis dataKey="date" />
+      <XAxis dataKey="date"/>
       <YAxis />
       <Tooltip content={CustomTooltip}/>
       <Area
