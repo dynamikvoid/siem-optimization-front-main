@@ -16,8 +16,9 @@ import { Popover, Zoom } from "@mui/material";
 
 import Slider from "@mui/material/Slider";
 
-let loadVal = true;
-let loadvVal = true;
+let loadxVal = true;
+let loadyVal = true;
+global.data2 = [];
 
 function valuetext(value) {
   return `${value}`;
@@ -47,22 +48,26 @@ const ScatterChartGraph = () => {
   const handleVChange = (event, newvValue) => {
     if (newvValue === undefined) {
       global.updvValue = [0, 1000];
-      loadvVal = true;
-      setValue(global.updValue);
+      loadxVal = false;
+      loadyVal = true;
+      setValue(global.updvValue);
     } else {
       global.updvValue = newvValue;
-      loadvVal = false;
+      loadxVal = true;
+      loadyVal = false;
       setValue1(newvValue);
     }
   };
   const handleChange = (event, newValue) => {
     if (newValue === undefined) {
       global.updValue = [0, 1];
-      loadVal = true;
+      loadyVal = false;
+      loadxVal = true;
       setValue(global.updValue);
     } else {
       global.updValue = newValue;
-      loadVal = false;
+      loadxVal = false;
+      loadyVal = true;
       setValue(newValue);
     }
   };
@@ -72,92 +77,124 @@ const ScatterChartGraph = () => {
   //console.log("global.updValue",global.updValue)
   //console.log(global.yFrequency)
 
-  global.data1 = [];
-
-  for (let n = 0; n <= chartData.length; n++) {
-    let m = n + 1;
-    let d = {
-      x: chartData.slice(n, m).map((x) => x.fidelity),
-      y: chartData.slice(n, m).map((y) => y.frequency),
-      z: chartData
-        .slice(n, m)
-        .filter((v) => {
-          return (
-            v?.severity_medium ||
-            v?.severity_high ||
-            v?.severity_low ||
-            v?.severity_informational
-          );
-        })
-        .map(
-          (v) =>
-            v?.severity_medium ||
-            v?.severity_high ||
-            v?.severity_low ||
-            v?.severity_informational
-        ),
-    };
-    global.data1.push(d);
-  }
   // ist [0,1][2,3]
   //[0,2][1,3]
-  if (!loadVal) {
-    var firstItem = global.updValue[0];
-    var lastItem = global.updValue[global.updValue.length - 1];
+  if (!loadxVal || !loadyVal) {
+    if (!loadyVal) {
+      var firstyItem = global.updvValue[0];
+      var lastyItem = global.updvValue[global.updvValue.length - 1];
+    } else {
+      var firstxItem = global.updValue[0];
+      var lastxItem = global.updValue[global.updValue.length - 1];
+    }
 
-    global.data1 = [];
-
+    global.data1 = global.data2;
+    global.data2 = [];
+    
     for (let n = 0; n <= chartData.length; n++) {
       let m = n + 1;
       let d = {
         x: chartData
           .slice(n, m)
-          .filter((x) => x.fidelity <= lastItem && x.fidelity >= firstItem)
+          .filter(
+            (x) =>
+              (x.fidelity <= lastxItem && x.fidelity >= firstxItem) ||
+              (x.frequency <= lastyItem && x.frequency >= firstyItem)
+          )
           .map((x) => x.fidelity),
         y: chartData
           .slice(n, m)
-          .filter((x) => x.fidelity <= lastItem && x.fidelity >= firstItem)
+          .filter(
+            (x) =>
+              (x.frequency <= lastyItem && x.frequency >= firstyItem) ||
+              (x.fidelity <= lastxItem && x.fidelity >= firstxItem)
+          )
           .map((y) => y.frequency),
+          z: chartData
+          .slice(n, m)
+          .filter((v) => {
+            return (
+              v?.severity_medium ||
+              v?.severity_high ||
+              v?.severity_low ||
+              v?.severity_informational
+            );
+          })
+          .map(
+            (v) =>
+            v?.severity_informational && Object.keys(v)[10] ||
+            v?.severity_low && Object.keys(v)[11] ||
+            v?.severity_medium && Object.keys(v)[12] ||
+            v?.severity_high && Object.keys(v)[13]
+          ),  
       };
-      global.data1.push(d);
+      if (global.data1===null){
+      global.data1.push(d);}
+      else {global.data2.push(d);
+        global.data1 = global.data2; }; 
+      
     }
     //let lastfilter = lastArray.filter(l=>l>=firstItem)
     //data1 = data1.filter(val=> (val.x))
     console.log("gg", global.data1);
-  }
-
-  if (!loadvVal) {
-    var firstItem = global.updvValue[0];
-    var lastItem = global.updvValue[global.updvValue.length - 1];
-
+  } 
+  else {
     global.data1 = [];
 
     for (let n = 0; n <= chartData.length; n++) {
       let m = n + 1;
       let d = {
-        x: chartData
+        x: chartData.slice(n, m).map((x) => x.fidelity),
+        y: chartData.slice(n, m).map((y) => y.frequency),
+        z: chartData
           .slice(n, m)
-          .filter((x) => x.frequency <= lastItem && x.frequency >= firstItem)
-          .map((x) => x.fidelity),
-        y: chartData
-          .slice(n, m)
-          .filter((x) => x.frequency <= lastItem && x.frequency >= firstItem)
-          .map((y) => y.frequency),
+          .filter((v) => {
+            return (
+              v?.severity_medium ||
+              v?.severity_high ||
+              v?.severity_low ||
+              v?.severity_informational
+            );
+          })
+          .map(
+            (v) =>
+            v?.severity_informational && Object.keys(v)[10] ||
+            v?.severity_low && Object.keys(v)[11] ||
+            v?.severity_medium && Object.keys(v)[12] ||
+            v?.severity_high && Object.keys(v)[13]
+          ),
+          
       };
       global.data1.push(d);
+      console.log(global.data1)
     }
-    //let lastfilter = lastArray.filter(l=>l>=firstItem)
-    //data1 = data1.filter(val=> (val.x))
-    console.log("gg", global.data1);
   }
+  // } else if (!loadyVal) {
+  //   var firstItem = global.updvValue[0];
+  //   var lastItem = global.updvValue[global.updvValue.length - 1];
 
-  /*console.log(chartData.slice(0,1).filter(v => {
-      return (v?.severity_medium || v?.severity_high || v?.severity_low || v?.severity_informational)
-    }).map(v =>  {
-      return (v?.severity_medium || v?.severity_high || v?.severity_low || v?.severity_informational)}))*/
-  /*console.log(chartData.slice(0,1).filter(v => {
-      return (v?.severity_medium || v?.severity_high || v?.severity_low || v?.severity_informational)
-    }).map(v => (v?.severity_medium || v?.severity_high || v?.severity_low || v?.severity_informational)))*/
+  //   global.data1 = [];
+
+  //   for (let n = 0; n <= chartData.length; n++) {
+  //     let m = n + 1;
+  //     let d = {
+  //       x: chartData
+  //         .slice(n, m)
+  //         .filter((x) => x.frequency <= lastItem && x.frequency >= firstItem)
+  //         .map((x) => x.fidelity),
+  //       y: chartData
+  //         .slice(n, m)
+  //         .filter((x) => x.frequency <= lastItem && x.frequency >= firstItem)
+  //         .map((y) => y.frequency),
+  //     };
+  //     global.data1.push(d);
+  //   }
+  //   //let lastfilter = lastArray.filter(l=>l>=firstItem)
+  //   //data1 = data1.filter(val=> (val.x))
+  //   console.log("gg", global.data1);
+  // }
+
+  
 
   /*const data = [
       { x: .23, y: 56, colourType:"rgba(214, 0, 0, 0.75)" },
@@ -187,6 +224,8 @@ const ScatterChartGraph = () => {
       { x: global.xFidelity[24], y: global.yFrequency[24], colourType:"rgba(214, 0, 0, 0.75)" },
       { x: global.xFidelity[25], y: global.yFrequency[25], colourType:"rgba(232, 252, 0, 0.75)" }
       ];*/
+
+      
 
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
@@ -249,7 +288,10 @@ const ScatterChartGraph = () => {
         />
         <Scatter data={global.data1} stroke="#5A5A5A" strokeWidth={1}>
           {global.data1.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={entry.colourType ?? "#8884d8"} />
+            <Cell key={`cell-${index}`} fill={entry.z == 'severity_high' ? entry.colourType = "#d60000bf" 
+          : entry.z == 'severity_medium' ? entry.colourType = "rgba(255, 122, 0, 0.75)" 
+          : entry.z == 'severity_low' ? entry.colourType = "#e8fc00bf" 
+          : entry.colourType = "rgba(214, 216, 198, 0.75)"} />
           ))}
         </Scatter>
       </ScatterChart>

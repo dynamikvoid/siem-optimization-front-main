@@ -1,20 +1,15 @@
 import * as React from 'react';
-import { useQuery,Mutation } from '@tanstack/react-query';
 import Slider from '@mui/material/Slider';
-import axios from 'axios';
-import ScatterChartGraph from './ScatterPlot';
 
-global.updValue = [0,1];
+
+
 
 function valuetext(value) {
   return `${value}`;
 }
 
 
-export function updateValue () {
-   let v = global.updValue;
-   return v;
-}
+
 
 export default function RangeSlider() {
   const [value, setValue] = React.useState([0, 35000]);
@@ -32,17 +27,12 @@ export default function RangeSlider() {
   //global.val = data.map(x => x.fidelity)
 
   const handleChange = (event, newValue) => {
-    if (newValue === undefined) {
-      global.updValue = [0,35000]
-      setValue(global.updValue);
-    }
-    else {
-      global.updValue = newValue;
+    
       setValue(newValue);
-      updateValue();
     }
     
-  };
+    
+  ;
 
   
   
@@ -56,7 +46,7 @@ export default function RangeSlider() {
         getAriaLabel={() => 'Fidelity'}
         min={0}
         max={35000}
-        step={1000}
+        step={100}
         value={value}
         onChange={handleChange}
         valueLabelDisplay="auto"

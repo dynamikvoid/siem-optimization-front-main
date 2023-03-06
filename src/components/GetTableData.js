@@ -49,13 +49,13 @@ const GetAsData = () => {
     );*/
 
     return (
-        <Paper sx={{ width: '100%', overflow: 'hidden', marginLeft: -5 }}>
-              <TableContainer component={Paper} style={{  minWidth: 1175, maxHeight: 300 }}>
+        <Paper sx={{ width: '100%', overflow: 'hidden', marginLeft: 0, maxHeight:300 }}>
+              <TableContainer component={Paper} style={{  minWidth: 1120, maxHeight: 300 }}>
                 <Table style={{ minWidth: 800, marginLeft: -10 }} stickyHeader aria-label="sticky table">
                   <TableHead>
                     <TableRow>
-                      <TableCell style={{ fontSize: 20 }}>Rule Name</TableCell>
-                      <TableCell style={{ fontSize: 20 }} align="right">Ann. Recovery Value</TableCell>
+                      <TableCell style={{ fontSize: 16 }}>Rule Name</TableCell>
+                      <TableCell style={{ fontSize: 16 }} align="right">Ann. Recovery Value</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>

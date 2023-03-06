@@ -86,26 +86,48 @@ const ChartTableIV = () => {
         grid: {
           drawBorder: false,
           display: false,
-        }},
-        y: {
-          ticks: {
-            display: false,
-            beginAtZero: true,
-          },
-          // to remove the y-axis grid
-          grid: {
-            drawBorder: false,
-            display: false,
-          },
         },
       },
-    
+      y: {
+        ticks: {
+          display: false,
+          beginAtZero: true,
+        },
+        // to remove the y-axis grid
+        grid: {
+          drawBorder: false,
+          display: false,
+        },
+      },
+    },
   };
 
   const sourceSys = ingdata.map((q) => q.sourcesystem);
+  let startDateraw = ingdata
+    .filter((x) => x.date === "2022-10-21T00:00:00Z")
+    .slice(0, 1)
+    .map((q) => q.date);
   const indisourceSys = sourceSys.filter(
     (q, idx) => sourceSys.indexOf(q) === idx
   );
+  let startDate = new Date(startDateraw);
+  let nextMonthdate = moment(
+    startDate.setDate(startDate.getDate() + 10)
+  ).format("DD-MM-YYYY");
+
+  let fromDate = [];
+  let toDate = [];
+  let allDates = ingdata.map((x) => x.date);
+  let dateNow = ingdata.filter((obj) => {
+    return (
+      moment(obj.date).format("DD-MM-YYYY") >=
+        moment(startDate).format("DD-MM-YYYY") &&
+      moment(obj.date).format("DD-MM-YYYY") <=
+        moment(nextMonthdate).format("DD-MM-YYYY")
+    );
+  });
+
+  console.log("new", dateNow);
 
   let sourceData = [];
 
@@ -119,12 +141,28 @@ const ChartTableIV = () => {
         thisSource: srcSys,
 
         thissourceData: ingdata
-          .filter((x) => x.sourcesystem === srcSys && x.sourcesystem !== "")
+          .filter(
+            (x) =>
+              x.sourcesystem === srcSys &&
+              x.sourcesystem !== "" &&
+              moment(x.date).format("DD-MM-YYYY") >=
+                moment(startDate).format("DD-MM-YYYY") &&
+              moment(x.date).format("DD-MM-YYYY") <=
+                moment(nextMonthdate).format("DD-MM-YYYY")
+          )
           .map((x) => x.daily_datasize_gb),
 
         sumsourceData: sum(
           ingdata
-            .filter((x) => x.sourcesystem === srcSys && x.sourcesystem !== "")
+            .filter(
+              (x) =>
+                x.sourcesystem === srcSys &&
+                x.sourcesystem !== "" &&
+                moment(x.date).format("DD-MM-YYYY") >=
+                  moment(startDate).format("DD-MM-YYYY") &&
+                moment(x.date).format("DD-MM-YYYY") <=
+                  moment(nextMonthdate).format("DD-MM-YYYY")
+            )
             .map((x) => x.daily_datasize_gb)
         ),
 
@@ -140,7 +178,7 @@ const ChartTableIV = () => {
         ),
       };
       //sourceData.push(thissourceData)
-      //console.log(d)
+      //console.log("dated",d)
       sourceData.push(d);
     }
   }
@@ -172,10 +210,10 @@ const ChartTableIV = () => {
     );*/
 
   return (
-    <Paper sx={{ width: "130%", overflow: "hidden", marginLeft: -15 }}>
-      <TableContainer
-        component={Paper}
-        style={{ minWidth: 1175, maxHeight: 400 }}
+    
+      <TableContainer 
+        
+        style={{ minWidth: 1175, maxHeight: 360, marginLeft: -155}}
       >
         <Table
           style={{ minWidth: 800, marginLeft: -10 }}
@@ -184,7 +222,9 @@ const ChartTableIV = () => {
         >
           <TableHead>
             <TableRow>
-              <TableCell style={{ fontSize: 20 }} align="center">Source</TableCell>
+              <TableCell style={{ fontSize: 20 }} align="center">
+                Source
+              </TableCell>
               <TableCell style={{ fontSize: 20 }} align="left">
                 Ingestion Volume
               </TableCell>
@@ -206,7 +246,7 @@ const ChartTableIV = () => {
                   <TableCell component="th" scope="row" align="center">
                     {listValue.thisSource}
                   </TableCell>
-                  <TableCell align="right" width="10%">
+                  <TableCell align="right" width="30%">
                     <Line
                       options={options}
                       data={{
@@ -214,10 +254,10 @@ const ChartTableIV = () => {
                         datasets: [
                           {
                             fill: true,
-                            label:'Vol in Gb',
+                            label: "Vol in Gb",
                             data: listValue.thissourceData,
-                            borderColor: "rgb(53, 162, 235)",
-                            backgroundColor: "rgba(53, 162, 235, 0.5)",
+                            borderColor: "#cc66ff",
+                            backgroundColor: "#dd99ff",
                           },
                         ],
                       }}
@@ -244,7 +284,9 @@ const ChartTableIV = () => {
       />
       </AreaChart> */}
                   </TableCell>
-                  <TableCell align="left" width="20%">{listValue.dailydataSize}</TableCell>
+                  <TableCell align="left" width="20%">
+                    {listValue.dailydataSize}
+                  </TableCell>
                   <TableCell align="left">{listValue.dailydataSize}</TableCell>
                 </TableRow>
               );
@@ -252,7 +294,7 @@ const ChartTableIV = () => {
           </TableBody>
         </Table>
       </TableContainer>
-    </Paper>
+    
   );
 };
 

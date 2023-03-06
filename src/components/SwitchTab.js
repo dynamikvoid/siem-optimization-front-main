@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import {StyleSheet, View, Image, Text, Dimensions, ImageBackground, Button} from 'react-native';
 import ScatterChartGraph from './ScatterPlot';
 import StackedAreaChart from './StackedAreaChart';
+import GridExample from './ChartTableIV'
+
 
 const RM = () => {
 
@@ -10,7 +12,7 @@ const RM = () => {
     const SelectedTab = () => {
         switch(selectedTab){
             case 'A':
-                return <ScatterChartGraph />
+                return <GridExample />
             case 'B':
                 return <StackedAreaChart />
             default:

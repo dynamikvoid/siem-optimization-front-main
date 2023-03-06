@@ -198,15 +198,16 @@ const AlertSummary = () => {
           </div>
         </div>
       </div>
-      <div className="annualized-recovery-value-container1">
-        
+      
+      <Card style={{ minWidth: 200, maxWidth:1090, maxHeight:250, marginTop:820,marginLeft:180}}>
+            <CardContent>
         <div className="getdata">
           <GetData/>
           <GetAsData/>
         </div>
-      </div>
-      <div className="k11">$4K</div>
-      <div className="div23">$0</div>
+        </CardContent></Card>
+      
+      
       <img
         className="downloadfilled-icon1"
         alt=""

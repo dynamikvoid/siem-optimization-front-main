@@ -82,7 +82,7 @@ const Exploration = () => {
               <MultiSelectEx5/>
             </div>
 
-            <div className="m-8 bg-gray-200 rounded-sm shadow-lg" style={{marginTop:650, marginLeft:-500, minHeight:180,minWidth:1300}}>
+            <div className="m-8 bg-gray-200 rounded-sm shadow-lg" style={{marginTop:650, marginLeft:-500, minHeight:180,minWidth:1200}}>
       <CardTab>
         <div>
           <TabSwitcher tabId={1}>
