@@ -72,6 +72,19 @@ class IngestionVolumeData(models.Model):
         
     def datetime_format(self):
         return datetime.strptime(self.date, '%Y-%m-%dT%H:%M:%S.%f%z').astimezone(('America/New_York')).strftime('%I:%M %p')
+    
+    class CostAnalysisData(models.Model):
+    cost_analysis_id = models.IntegerField(db_column='Cost_Analysis_id', primary_key=True, blank=False, null=False)
+    Table = models.TextField(db_column='Table', blank=True, null=True)
+    Source = models.TextField(db_column='Source', blank=True, null=True)
+    Billable = models.BooleanField(db_column='Billable', default=False)
+    Cost = models.FloatField(db_column='Cost', blank=True, null=True)
+    Value = models.IntegerField(db_column='Value', blank=True, null=True)
+    ROI = models.FloatField(db_column='ROI', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'Cost_Analysis_Data'
    
         
     def __str__(self):
