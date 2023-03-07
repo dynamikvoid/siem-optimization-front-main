@@ -18,4 +18,11 @@ class siemoptSerializer1(serializers.ModelSerializer):
     # create a meta class
     class Meta:
         model = IngestionVolumeData
-        fields = '__all__'        
+        fields = '__all__'   
+      
+      
+ class CostAnalysisDataSerializer(serializers.ModelSerializer):
+    # create a meta class
+    class Meta:
+        model = CostAnalysisData
+        fields = '__all__'
