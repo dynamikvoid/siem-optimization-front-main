@@ -61,3 +61,9 @@ def getOneIngVoldata(request, pk):
     ivdata = IngestionVolumeData.objects.get(id=pk)
     serializer = siemoptSerializer1(ivdata, many=False)
     return Response(serializer.data)   
+   
+@api_view(['GET'])
+def GetCostAnalysisData(request):
+    costanalysisdata = CostAnalysisData.objects.all()
+    serializer = CostAnalysisDataSerializer(costanalysisdata, many=True)
+    return Response(serializer.data)
