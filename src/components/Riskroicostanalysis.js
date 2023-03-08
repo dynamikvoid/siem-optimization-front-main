@@ -46,7 +46,7 @@ return (
       <Legend />
       <ReferenceLine y={0} stroke="#000" />
       <Bar dataKey="cost" fill="#cc00ff" stackId="stack" />
-      <Bar dataKey="roi" fill="#000000" stackId="stack" />
+      <Bar dataKey="roi" fill="#d3d3d3" stackId="stack" />
     </BarChart>
   );
 }
