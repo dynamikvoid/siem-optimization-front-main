@@ -7,13 +7,13 @@ from rest_framework import viewsets
 from .serializers import siemoptSerializer
  
 # import the siemopt model from the models file
-from .models import siemopt,AlertSummaryData,IngestionVolumeData
+from .models import siemopt,AlertSummaryData,IngestionVolumeData, CostAnalysisData 
 
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
 from django.http import JsonResponse
-from .serializers import siemoptSerializer, siemoptSerializer1
+from .serializers import siemoptSerializer, siemoptSerializer1, CostAnalysisDataSerializer
 # create a class for the siemopt model viewsets
 class siemoptView(viewsets.ModelViewSet):
  

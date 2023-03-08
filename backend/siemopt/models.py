@@ -73,7 +73,7 @@ class IngestionVolumeData(models.Model):
     def datetime_format(self):
         return datetime.strptime(self.date, '%Y-%m-%dT%H:%M:%S.%f%z').astimezone(('America/New_York')).strftime('%I:%M %p')
     
-    class CostAnalysisData(models.Model):
+class CostAnalysisData(models.Model):
     cost_analysis_id = models.IntegerField(db_column='Cost_Analysis_id', primary_key=True, blank=False, null=False)
     Table = models.TextField(db_column='Table', blank=True, null=True)
     Source = models.TextField(db_column='Source', blank=True, null=True)

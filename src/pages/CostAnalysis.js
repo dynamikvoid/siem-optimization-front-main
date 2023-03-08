@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./CostAnalysis.css";
 import { Card, CardContent } from "@mui/material";
 import BarChartCA from "../components/LineChartIV";
+import Riskroicostanalysis from "../components/Riskroicostanalysis"
 
 const CostAnalysis = () => {
   const navigate = useNavigate();
@@ -167,7 +168,9 @@ const CostAnalysis = () => {
             <div className="rectangle-parent27">
               <Card sx={{ minWidth: 200, maxWidth:1210, minHeight:480, marginTop:1,marginLeft:0, marginRight:-2}}>
                 <CardContent>
-                  <div id="my-app"></div>
+                  <div id="my-app">
+                  <Riskroicostanalysis/>
+                  </div>
                 </CardContent></Card>
               
             </div>
