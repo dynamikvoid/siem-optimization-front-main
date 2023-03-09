@@ -200,6 +200,7 @@ console.log(data1)
           stroke="#652ca8"
           fill="#652ca8"
         />
+        
          
          
           </>
@@ -221,7 +222,48 @@ console.log(data1)
         stackId="1"
         stroke="#d1a8ff"
         fill="#d1a8ff"
-      /> */}
+      /> */
+      
+      // const areas = [
+      //   {
+      //     dataKey: "srcSys",
+      //     stroke: "#652ca8",
+      //     fill: "#652ca8",
+      //   },
+      //   {
+      //     dataKey: "OpsManager",
+      //     stroke: "#8a38f5",
+      //     fill: "#8a38f5",
+      //   },
+      //   {
+      //     dataKey: "Azure",
+      //     stroke: "#d1a8ff",
+      //     fill: "#d1a8ff",
+      //   },
+      //   // Add more objects as needed
+      // ];
+      
+      // function Areas() {
+      //   return (
+      //     <>
+      //       {areas.map((area, index) => (
+      //         <Area
+      //           key={index}
+      //           type="linear"
+      //           dataKey={area.dataKey}
+      //           stackId="1"
+      //           stroke={area.stroke}
+      //           fill={area.fill}
+      //         />
+      //       ))}
+      //     </>
+      //   );
+      // }
+      
+      
+      
+      
+      }
 
 
     </AreaChart>
