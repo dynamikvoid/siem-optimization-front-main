@@ -28,8 +28,8 @@ function Riskroicostanalysis(){
 console.log("Risk Data from page",riskdata)
 return (
     <BarChart
-      width={900}
-      height={400}
+      width={2000}
+      height={450}
       data={riskdata}
       stackOffset="sign"
       margin={{
@@ -39,9 +39,9 @@ return (
         bottom: 5
       }}
     >
-      <CartesianGrid strokeDasharray="3 3" />
+      {/* <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="table" />
-      <YAxis />
+      <YAxis /> */}
       <Tooltip />
       <Legend />
       <ReferenceLine y={0} stroke="#000" />

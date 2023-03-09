@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import "./CostAnalysis.css";
 import { Card, CardContent } from "@mui/material";
 import BarChartCA from "../components/LineChartIV";
-import Riskroicostanalysis from "../components/Riskroicostanalysis"
+import ToggleSwitch from "../components/ToggleSwitch";
+import Riskroicostanalysis from "../components/Riskroicostanalysis";
+import RangeSlider from "../components/rangeSlider";
 
 const CostAnalysis = () => {
   const navigate = useNavigate();
@@ -166,13 +168,37 @@ const CostAnalysis = () => {
               </div>
             </div>
             <div className="rectangle-parent27">
-              <Card sx={{ minWidth: 200, maxWidth:1210, minHeight:480, marginTop:1,marginLeft:0, marginRight:-2}}>
+              <Card
+                sx={{
+                  minWidth: 200,
+                  maxWidth: 1210,
+                  minHeight: 480,
+                  marginTop: 1,
+                  marginLeft: 0,
+                  marginRight: -2,
+                }}
+              >
                 <CardContent>
                   <div id="my-app">
-                  <Riskroicostanalysis/>
+                    <Riskroicostanalysis />
                   </div>
-                </CardContent></Card>
-              
+                  <div className="switch-wrapper">
+                    <div className="switch">
+                      <div
+                        className="value1"
+                        style={{ marginBottom: 136, fontSize: 16 }}
+                      >
+                        Detailed View
+                      </div>
+                      <div className="switch1">
+                        <div>
+                          <ToggleSwitch />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
             <div className="risk-roi-cost">Risk ROI Cost Analysis</div>
             <div className="autocomplete">
@@ -541,7 +567,7 @@ const CostAnalysis = () => {
             </div>
           </div>
         </div>
-        <div className="roi2">ROI</div>
+        <div className="roi2"> <RangeSlider/>ROI</div>
         <div className="text-field24">
           <div className="field25">
             <div className="prefix25">
