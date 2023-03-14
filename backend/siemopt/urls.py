@@ -7,7 +7,8 @@ urlpatterns = [
     path('asdata/', views.getAsdata, name="asdata"),
     path('asdata/<str:pk>/', views.getOneAsdata, name="oneasdata"),
     path('ingvoldata/', views.getIngVoldata, name="ingvoldata"),
-    path('ingvoldata/<str:pk>/', views.getOneIngVoldata, name="oneingvoldata")
+    path('ingvoldata/<str:pk>/', views.getOneIngVoldata, name="oneingvoldata"),
+    path('GetCostAnalysisData/', views.GetCostAnalysisData, name="GetCostAnalysisData"),
     # add another path to the url patterns
     # when you visit the localhost:8000/api
     # you should be routed to the django Rest framework
