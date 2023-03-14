@@ -150,9 +150,9 @@ const ChartTableIV = () => {
               moment(x.date).format("DD-MM-YYYY") <=
                 moment(nextMonthdate).format("DD-MM-YYYY")
           )
-          .map((x) => x.daily_datasize_gb),
+          .map((x) => Math.round(x.daily_datasize_gb*10)/10),
 
-        sumsourceData: sum(
+        sumsourceData: Math.round(sum(
           ingdata
             .filter(
               (x) =>
@@ -164,9 +164,9 @@ const ChartTableIV = () => {
                   moment(nextMonthdate).format("DD-MM-YYYY")
             )
             .map((x) => x.daily_datasize_gb)
-        ),
+        )*10)/10,
 
-        dailydataSize: sum(
+        dailydataSize: Math.round(sum(
           ingdata
             .filter(
               (x) =>
@@ -175,7 +175,7 @@ const ChartTableIV = () => {
                 x.sourcesystem === srcSys
             )
             .map((x) => x.daily_datasize_gb)
-        ),
+        )*10)/10,
       };
       //sourceData.push(thissourceData)
       //console.log("dated",d)
@@ -210,59 +210,57 @@ const ChartTableIV = () => {
     );*/
 
   return (
-    
-      <TableContainer 
-        
-        style={{ minWidth: 1175, maxHeight: 360, marginLeft: -155}}
+    <TableContainer
+      style={{ minWidth: 1175, maxHeight: 360, marginLeft: -155 }}
+    >
+      <Table
+        style={{ minWidth: 800, marginLeft: -10 }}
+        stickyHeader
+        aria-label="sticky table"
       >
-        <Table
-          style={{ minWidth: 800, marginLeft: -10 }}
-          stickyHeader
-          aria-label="sticky table"
-        >
-          <TableHead>
-            <TableRow>
-              <TableCell style={{ fontSize: 20 }} align="center">
-                Source
-              </TableCell>
-              <TableCell style={{ fontSize: 20 }} align="left">
-                Ingestion Volume
-              </TableCell>
-              <TableCell style={{ fontSize: 20 }} align="left">
-                Today's Volume
-              </TableCell>
-              <TableCell style={{ fontSize: 20 }} align="left">
-                Wow% Change
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {sourceData.map((listValue, index) => {
-              return (
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  key={index}
-                >
-                  <TableCell component="th" scope="row" align="center">
-                    {listValue.thisSource}
-                  </TableCell>
-                  <TableCell align="right" width="30%">
-                    <Line
-                      options={options}
-                      data={{
-                        labels: listValue.thissourceData,
-                        datasets: [
-                          {
-                            fill: true,
-                            label: "Vol in Gb",
-                            data: listValue.thissourceData,
-                            borderColor: "#cc66ff",
-                            backgroundColor: "#dd99ff",
-                          },
-                        ],
-                      }}
-                    />
-                    {/* <AreaChart
+        <TableHead>
+          <TableRow>
+            <TableCell style={{ fontSize: 20 }} align="center">
+              Source
+            </TableCell>
+            <TableCell style={{ fontSize: 20 }} align="left">
+              Ingestion Volume
+            </TableCell>
+            <TableCell style={{ fontSize: 20 }} align="left">
+              Today's Volume
+            </TableCell>
+            <TableCell style={{ fontSize: 20 }} align="left">
+              Wow% Change
+            </TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {sourceData.map((listValue, index) => {
+            return (
+              <TableRow
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                key={index}
+              >
+                <TableCell component="th" scope="row" align="center">
+                  {listValue.thisSource}
+                </TableCell>
+                <TableCell align="right" width="30%">
+                  <Line
+                    options={options}
+                    data={{
+                      labels: listValue.thissourceData,
+                      datasets: [
+                        {
+                          fill: true,
+                          label: "Vol in Gb",
+                          data: listValue.thissourceData,
+                          borderColor: "#cc66ff",
+                          backgroundColor: "#dd99ff",
+                        },
+                      ],
+                    }}
+                  />
+                  {/* <AreaChart
       width={500}
       height={100}
       data={sourceData}
@@ -283,18 +281,17 @@ const ChartTableIV = () => {
         fill="#652ca8"
       />
       </AreaChart> */}
-                  </TableCell>
-                  <TableCell align="left" width="20%">
-                    {listValue.dailydataSize}
-                  </TableCell>
-                  <TableCell align="left">{listValue.dailydataSize}</TableCell>
-                </TableRow>
-              );
-            })}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    
+                </TableCell>
+                <TableCell align="left" width="20%">
+                  {listValue.dailydataSize}
+                </TableCell>
+                <TableCell align="left">{listValue.dailydataSize}</TableCell>
+              </TableRow>
+            );
+          })}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 };
 

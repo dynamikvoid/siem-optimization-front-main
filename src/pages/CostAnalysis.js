@@ -1,8 +1,11 @@
-import { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CostAnalysis.css";
 import { Card, CardContent } from "@mui/material";
-import BarChartCA from "../components/LineChartIV";
+import BarChartCA from "../components/BarChartCA";
+import BarChartROIViewCA from "../components/BarChartROIViewCA";
+import ToggleSwitchCA from "../components/ToggleSwitchCA";
+import GetAsDataCA from "../components/GetTableDataCA";
 
 const CostAnalysis = () => {
   const navigate = useNavigate();
@@ -31,6 +34,12 @@ const CostAnalysis = () => {
     navigate("/");
   }, [navigate]);
 
+  const [toggle, setToggle] = useState("");
+  const checkedState = (val) => {
+    setToggle(val);
+    //console.log("checkedState ", val);
+  };
+
   return (
     <div className="cost-analysis">
       <div className="frame-div">
@@ -40,136 +49,43 @@ const CostAnalysis = () => {
             Candidates for data offboarding
           </div>
           <div className="table-roi-chart-parent">
-            <div className="table-roi-chart">
-              <div className="roi-parent">
-                <div className="roi">ROI</div>
-                <div className="cost">Cost</div>
-                <div className="value24">Value</div>
-              </div>
-              <div className="rectangle-container">
-                <div className="group-child7" />
-                <div className="m9">$14.5M</div>
-              </div>
-              <div className="table-1">Table 1</div>
-              <div className="rectangle-parent1">
-                <div className="group-child8" />
-                <div className="m10">$2.5M</div>
-              </div>
-              <div className="rectangle-parent2">
-                <div className="group-child9" />
-                <div className="m11">$12.0M</div>
-              </div>
-              <div className="rectangle-parent3">
-                <div className="group-child7" />
-                <div className="m12">$14.7M</div>
-              </div>
-              <div className="table-2">Table 2</div>
-              <div className="rectangle-parent4">
-                <div className="group-child11" />
-                <div className="m13">$3.5M</div>
-              </div>
-              <div className="rectangle-parent5">
-                <div className="group-child9" />
-                <div className="m14">$11.2M</div>
-              </div>
-              <div className="rectangle-parent6">
-                <div className="group-child13" />
-                <div className="m15">$16.2M</div>
-              </div>
-              <div className="table-3">Table 3</div>
-              <div className="rectangle-parent7">
-                <div className="group-child14" />
-                <div className="m16">$5.5M</div>
-              </div>
-              <div className="rectangle-parent8">
-                <div className="group-child9" />
-                <div className="m17">$10.7M</div>
-              </div>
-              <div className="rectangle-parent9">
-                <div className="group-child16" />
-                <div className="m18">$13.0M</div>
-              </div>
-              <div className="table-4">Table 4</div>
-              <div className="rectangle-parent10">
-                <div className="group-child17" />
-                <div className="m19">$4.5M</div>
-              </div>
-              <div className="rectangle-parent11">
-                <div className="group-child9" />
-                <div className="m19">$8.5M</div>
-              </div>
-              <div className="rectangle-parent12">
-                <div className="group-child16" />
-                <div className="m21">$13.0M</div>
-              </div>
-              <div className="table-5">Table 5</div>
-              <div className="rectangle-parent13">
-                <div className="group-child17" />
-                <div className="m22">$4.5M</div>
-              </div>
-              <div className="rectangle-parent14">
-                <div className="group-child9" />
-                <div className="m22">$8.5M</div>
-              </div>
-              <div className="rectangle-parent15">
-                <div className="group-child22" />
-                <div className="m24">$12.0M</div>
-              </div>
-              <div className="table-6">Table 6</div>
-              <div className="rectangle-parent16">
-                <div className="group-child17" />
-                <div className="m25">$4.5M</div>
-              </div>
-              <div className="rectangle-parent17">
-                <div className="group-child9" />
-                <div className="m26">$7.5M</div>
-              </div>
-              <div className="rectangle-parent18">
-                <div className="group-child25" />
-                <div className="m27">$10.0M</div>
-              </div>
-              <div className="table-7">Table 7</div>
-              <div className="rectangle-parent19">
-                <div className="group-child17" />
-                <div className="m28">$4.5M</div>
-              </div>
-              <div className="rectangle-parent20">
-                <div className="group-child9" />
-                <div className="m29">$5.5M</div>
-              </div>
-              <div className="rectangle-parent21">
-                <div className="group-child28" />
-                <div className="m30">$5.0M</div>
-              </div>
-              <div className="table-8">Table 8</div>
-              <div className="rectangle-parent22">
-                <div className="group-child29" />
-                <div className="m31">$5.0M</div>
-              </div>
-              <div className="rectangle-parent23">
-                <div className="group-child9" />
-                <div className="m32">$0.0M</div>
-              </div>
-              <div className="rectangle-parent24">
-                <div className="group-child31" />
-                <div className="m33">$1.5M</div>
-              </div>
-              <div className="table-9">Table 9</div>
-              <div className="rectangle-parent25">
-                <div className="group-child29" />
-                <div className="m34">$5.0M</div>
-              </div>
-              <div className="rectangle-parent26">
-                <div className="group-child9" />
-                <div className="m35">-$3.5M</div>
-              </div>
+            <div className="astableca">
+              <GetAsDataCA/>
             </div>
             <div className="rectangle-parent27">
-              <Card sx={{ minWidth: 200, maxWidth:1210, minHeight:480, marginTop:1,marginLeft:0, marginRight:-2}}>
+              <Card
+                sx={{
+                  minWidth: 200,
+                  maxWidth: 1210,
+                  minHeight: 480,
+                  marginTop: 1,
+                  marginLeft: 0,
+                  marginRight: -2,
+                }}
+              >
                 <CardContent>
-                  <div id="my-app"></div>
-                </CardContent></Card>
-              
+                  <p style={{ fontSize: 14, marginLeft: 0, marginTop: 2, position: 'absolute' }}>
+                    ROI View
+                  </p>
+                  <div>
+                    <ToggleSwitchCA checkedState={checkedState} />
+                    {toggle ? (
+                      <div>
+                        <BarChartROIViewCA />
+                        
+
+                        <div className="switch-container1">
+                          <div className="switch21"></div>
+                        </div>
+                      </div>
+                    ) : (
+                      <div>
+                        <BarChartCA />
+                      </div>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
             </div>
             <div className="risk-roi-cost">Risk ROI Cost Analysis</div>
             <div className="autocomplete">

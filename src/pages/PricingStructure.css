@@ -18,6 +18,7 @@
 .text {
   position: relative;
   line-height: 26px;
+  white-space: nowrap;
 }
 .button,
 .container {

@@ -28,6 +28,12 @@ const LandingPage7 = () => {
   const onButtonContainer5Click = useCallback(() => {
     navigate("/");
   }, [navigate]);
+  const onButtonContainer6Click = useCallback(() => {
+    navigate("/07-pricing-structure");
+  }, [navigate]);
+  const onButtonContainer7Click = useCallback(() => {
+    navigate("/06-impact-cost");
+  }, [navigate]);
 
   return (
     <div className="landing-page7">
@@ -105,17 +111,17 @@ const LandingPage7 = () => {
       </div>
       <div className="navbar10">
         <div className="navbar-child7" />
-        <div className="button61">
+        <div className="button61" onClick={onButtonContainer6Click}>
           <div className="container40">
             <img className="prefix-icon56" alt="" src="../prefix61.svg" />
-            <div className="text215">My Account</div>
+            <div className="text215">Pricing Structure</div>
             <img className="prefix-icon56" alt="" src="../suffix61.svg" />
           </div>
         </div>
-        <div className="button62">
+        <div className="button62" onClick={onButtonContainer7Click}>
           <div className="container40">
             <img className="prefix-icon56" alt="" src="../prefix62.svg" />
-            <div className="text215">Pricing Structure</div>
+            <div className="text215">Impact Cost</div>
             <img className="prefix-icon56" alt="" src="../suffix62.svg" />
           </div>
         </div>

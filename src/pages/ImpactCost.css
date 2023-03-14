@@ -32,7 +32,19 @@
   padding: 8px 22px;
   gap: 8px;
 }
-.button4,
+.button4{
+  position: absolute;
+  height: 63%;
+  width: 14.38%;
+  top: 19%;
+  right: 3.4%;
+  bottom: 18%;
+  left: 82.22%;
+  border-radius: 4px;
+  background-color: #520085;
+  flex-direction: column;
+  cursor: pointer;
+}
 .button5 {
   position: absolute;
   height: 63%;
@@ -47,6 +59,10 @@
   cursor: pointer;
 }
 .button5 {
+  right: 20.42%;
+  left: 65.21%;
+}
+.button4 {
   right: 20.42%;
   left: 65.21%;
 }
@@ -466,14 +482,16 @@
   position: absolute;
   left: 5.7%;
   line-height: 24px;
+  white-space: wrap;
+  width: 450px;
 }
 .alert-rule-values {
   width: 11.39%;
-  top: 7.47%;
+  top: 9.47%;
   display: inline-block;
 }
 .set-the-value {
-  top: 12.45%;
+  top: 15.45%;
   color: #888;
 }
 .arrowdownwardfilled-icon {
@@ -712,7 +730,7 @@
   width: 1106px;
   height: 482px;
   font-size: 16px;
-  color: #000;
+  color: #000000;
 }
 .impact-cost {
   position: relative;
